@@ -33,19 +33,34 @@
   // Category filters
   var current = "all";
   var bar = document.getElementById("filters");
+  var VALID = ["theater", "sports", "ceremony", "kids", "food"];
+
+  function applyFilter(cat) {
+    current = cat;
+    if (bar) {
+      bar.querySelectorAll(".filter").forEach(function (x) {
+        x.classList.toggle("active", x.dataset.cat === cat);
+      });
+    }
+    figures.forEach(function (f) {
+      f.style.display = (cat === "all" || f.dataset.cat === cat) ? "" : "none";
+    });
+  }
+
   if (bar) {
     bar.addEventListener("click", function (e) {
       var b = e.target.closest(".filter");
       if (!b) return;
-      current = b.dataset.cat;
-      bar.querySelectorAll(".filter").forEach(function (x) {
-        x.classList.toggle("active", x === b);
-      });
-      figures.forEach(function (f) {
-        f.style.display = (current === "all" || f.dataset.cat === current) ? "" : "none";
-      });
+      applyFilter(b.dataset.cat);
+      if (history.replaceState) {
+        history.replaceState(null, "", b.dataset.cat === "all" ? "#" : "#" + b.dataset.cat);
+      }
     });
   }
+
+  // Allow deep links like .../#food to open a category directly
+  var initial = (location.hash || "").replace("#", "");
+  if (VALID.indexOf(initial) >= 0) applyFilter(initial);
 
   function visibleIndices() {
     var out = [];
