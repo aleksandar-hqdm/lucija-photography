@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucija Photography | Event, Documentary & Cultural Photography, Skopje</title>
+<meta name="description" content="Lucija Spasevska is a Skopje-based photographer specialising in event, documentary, and cultural photography across North Macedonia.">
+<meta property="og:title" content="Lucija Photography">
+<meta property="og:description" content="Event, documentary and cultural photography, Skopje, North Macedonia.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="#top" class="brand">Lucija<span>Photography</span></a>
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="top" class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Skopje, North Macedonia</p>
+    <h1>Lucija Spasevska</h1>
+    <p class="lede">Event, documentary &amp; cultural photography. Capturing people, atmosphere, and the moments that tell the story.</p>
+    <a href="#work" class="cta">View work</a>
+  </div>
+</section>
+
+<main>
+  <section id="work" class="work">
+    <h2 class="section-title">Selected Work</h2>
+    <div id="gallery" class="gallery"></div>
+    <p id="gallery-empty" class="gallery-empty" hidden>Portfolio images are being added.</p>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-grid">
+      <div>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="about-body">
+        <p>Lucija is a Skopje-based photographer with three years of experience across events, documentary, and cultural work in North Macedonia.</p>
+        <p>Recent projects include the Skopje Street Food Festival, official sponsor photography for Vivas at a national Kids Olympics, and production photography for the independent theatre piece <em>Kokoshka</em>, with images shown at several festivals.</p>
+        <p>Her approach is documentary and people-first: authentic moments, real working settings, and a visual story told through a sequence of images rather than a single posed frame.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Get in touch</h2>
+    <ul class="contact-list">
+      <li><span>Email</span><a href="mailto:lucijaspasovska91@gmail.com">lucijaspasovska91@gmail.com</a></li>
+      <li><span>Phone</span><a href="tel:+38978435252">+389 78 435 252</a></li>
+      <li><span>Instagram</span><a href="https://www.instagram.com/lucijas_photography/" target="_blank" rel="noopener">@lucijas_photography</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>&copy; <span id="year"></span> Lucija Spasevska, Photographer, Skopje.</p>
+</footer>
+
+<div id="lightbox" class="lightbox" hidden>
+  <button class="lb-close" aria-label="Close">&times;</button>
+  <button class="lb-prev" aria-label="Previous">&#8249;</button>
+  <img id="lb-img" src="" alt="">
+  <button class="lb-next" aria-label="Next">&#8250;</button>
+</div>
+
+<script src="assets/photos.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
