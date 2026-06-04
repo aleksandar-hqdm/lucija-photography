@@ -10,9 +10,11 @@
     return;
   }
 
+  var figures = [];
   photos.forEach(function (p, i) {
     var fig = document.createElement("figure");
     fig.dataset.index = i;
+    fig.dataset.cat = p.category || "";
     var img = document.createElement("img");
     img.src = "images/" + p.src;
     img.alt = p.alt || "Lucija Spasevska photography";
@@ -25,15 +27,44 @@
     }
     fig.addEventListener("click", function () { open(i); });
     gallery.appendChild(fig);
+    figures.push(fig);
   });
 
-  // Lightbox
+  // Category filters
+  var current = "all";
+  var bar = document.getElementById("filters");
+  if (bar) {
+    bar.addEventListener("click", function (e) {
+      var b = e.target.closest(".filter");
+      if (!b) return;
+      current = b.dataset.cat;
+      bar.querySelectorAll(".filter").forEach(function (x) {
+        x.classList.toggle("active", x === b);
+      });
+      figures.forEach(function (f) {
+        f.style.display = (current === "all" || f.dataset.cat === current) ? "" : "none";
+      });
+    });
+  }
+
+  function visibleIndices() {
+    var out = [];
+    photos.forEach(function (p, i) {
+      if (current === "all" || p.category === current) out.push(i);
+    });
+    return out;
+  }
+
+  // Lightbox (navigates within the currently filtered set)
   var lb = document.getElementById("lightbox");
   var lbImg = document.getElementById("lb-img");
-  var cur = 0;
+  var list = [];
+  var pos = 0;
 
   function open(i) {
-    cur = i;
+    list = visibleIndices();
+    pos = list.indexOf(i);
+    if (pos < 0) { list = [i]; pos = 0; }
     render();
     lb.hidden = false;
     document.body.style.overflow = "hidden";
@@ -43,11 +74,11 @@
     document.body.style.overflow = "";
   }
   function step(d) {
-    cur = (cur + d + photos.length) % photos.length;
+    pos = (pos + d + list.length) % list.length;
     render();
   }
   function render() {
-    var p = photos[cur];
+    var p = photos[list[pos]];
     lbImg.src = "images/" + p.src;
     lbImg.alt = p.alt || "Lucija Spasevska photography";
   }
