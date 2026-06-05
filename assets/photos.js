@@ -60,6 +60,12 @@ window.PHOTOS = [
     "caption": ""
   },
   {
+    "src": "74.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "theater",
+    "caption": ""
+  },
+  {
     "src": "42.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "music",
@@ -120,6 +126,18 @@ window.PHOTOS = [
     "caption": ""
   },
   {
+    "src": "79.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "80.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
     "src": "06.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "sports",
@@ -139,6 +157,30 @@ window.PHOTOS = [
   },
   {
     "src": "09.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "sports",
+    "caption": ""
+  },
+  {
+    "src": "75.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "sports",
+    "caption": ""
+  },
+  {
+    "src": "76.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "sports",
+    "caption": ""
+  },
+  {
+    "src": "77.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "sports",
+    "caption": ""
+  },
+  {
+    "src": "78.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "sports",
     "caption": ""
