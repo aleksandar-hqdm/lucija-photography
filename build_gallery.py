@@ -14,7 +14,7 @@ from collections import Counter
 ROOT = os.path.dirname(os.path.abspath(__file__))
 IMG = os.path.join(ROOT, "images")
 EXT = (".jpg", ".jpeg", ".png", ".webp")
-CATEGORY_ORDER = ["theater", "music", "sports", "ceremony", "exhibition", "kids", "food"]
+CATEGORY_ORDER = ["theater", "events", "sports", "kids", "food"]
 
 
 def load(name, default):
