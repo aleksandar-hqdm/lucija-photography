@@ -186,12 +186,6 @@ window.PHOTOS = [
     "caption": ""
   },
   {
-    "src": "05.jpg",
-    "alt": "Lucija Spasevska photography",
-    "category": "ceremony",
-    "caption": ""
-  },
-  {
     "src": "10.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "ceremony",
@@ -283,6 +277,12 @@ window.PHOTOS = [
   },
   {
     "src": "04.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "kids",
+    "caption": ""
+  },
+  {
+    "src": "05.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "kids",
     "caption": ""
