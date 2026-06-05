@@ -54,12 +54,6 @@ window.PHOTOS = [
     "caption": ""
   },
   {
-    "src": "44.jpg",
-    "alt": "Lucija Spasevska photography",
-    "category": "theater",
-    "caption": ""
-  },
-  {
     "src": "46.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "theater",
@@ -67,6 +61,12 @@ window.PHOTOS = [
   },
   {
     "src": "42.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "44.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "music",
     "caption": ""
