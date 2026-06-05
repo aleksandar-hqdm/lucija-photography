@@ -33,7 +33,7 @@
   // Category filters
   var current = "all";
   var bar = document.getElementById("filters");
-  var VALID = ["theater", "sports", "ceremony", "kids", "food"];
+  var VALID = ["theater", "music", "sports", "ceremony", "exhibition", "kids", "food"];
 
   function applyFilter(cat) {
     current = cat;

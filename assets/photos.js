@@ -54,6 +54,72 @@ window.PHOTOS = [
     "caption": ""
   },
   {
+    "src": "44.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "theater",
+    "caption": ""
+  },
+  {
+    "src": "46.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "theater",
+    "caption": ""
+  },
+  {
+    "src": "42.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "45.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "47.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "49.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "52.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "53.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "57.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "58.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
+    "src": "59.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "music",
+    "caption": ""
+  },
+  {
     "src": "06.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "sports",
@@ -120,6 +186,60 @@ window.PHOTOS = [
     "caption": ""
   },
   {
+    "src": "60.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "61.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "62.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "63.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "64.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "65.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "66.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "67.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
+    "src": "69.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "exhibition",
+    "caption": ""
+  },
+  {
     "src": "04.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "kids",
@@ -151,6 +271,12 @@ window.PHOTOS = [
   },
   {
     "src": "35.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "kids",
+    "caption": ""
+  },
+  {
+    "src": "54.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "kids",
     "caption": ""
@@ -211,6 +337,102 @@ window.PHOTOS = [
   },
   {
     "src": "33.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "37.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "38.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "39.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "40.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "41.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "43.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "48.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "50.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "51.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "55.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "56.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "68.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "70.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "71.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "72.jpg",
+    "alt": "Lucija Spasevska photography",
+    "category": "food",
+    "caption": ""
+  },
+  {
+    "src": "73.jpg",
     "alt": "Lucija Spasevska photography",
     "category": "food",
     "caption": ""
