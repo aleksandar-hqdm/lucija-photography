@@ -58,6 +58,16 @@
     });
   }
 
+  // Featured images in the hero open the lightbox at the matching photo
+  document.querySelectorAll(".feat").forEach(function (fig) {
+    fig.addEventListener("click", function () {
+      var file = fig.getAttribute("data-file");
+      for (var k = 0; k < photos.length; k++) {
+        if (photos[k].src === file) { open(k); break; }
+      }
+    });
+  });
+
   // Allow deep links like .../#food to open a category directly
   var initial = (location.hash || "").replace("#", "");
   if (VALID.indexOf(initial) >= 0) applyFilter(initial);
