@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Jobs (private) | Lucija Photography</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d212b; --line:#2a2f3a;
+    --ink:#e9ecf2; --soft:#9aa3b2; --faint:#6b7384;
+    --ngo:#3fb27f; --intl:#4f9cf2; --culture:#a472f0; --corp:#7c8aa3; --food:#e0a93c; --kids:#ef6fa6;
+    --urgent:#ff5d5d;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  a{color:#7fb6ff;text-decoration:none}
+  a:hover{text-decoration:underline}
+  header{padding:28px 22px 10px;max-width:1280px;margin:0 auto}
+  h1{margin:0 0 4px;font-size:26px;letter-spacing:-.3px}
+  .sub{color:var(--soft);font-size:14px}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 22px 60px}
+
+  .urgent{background:linear-gradient(180deg,#241318,#1b1418);border:1px solid #45222a;border-radius:14px;padding:16px 18px;margin:18px 0 8px}
+  .urgent h2{margin:0 0 10px;font-size:15px;color:#ffb4b4;letter-spacing:.3px;text-transform:uppercase}
+  .urgent ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:8px}
+  .urgent li{background:#181318;border:1px solid #3a2026;border-radius:9px;padding:9px 11px;font-size:13.5px}
+  .urgent .when{color:var(--urgent);font-weight:600;font-size:12px;display:block;margin-bottom:2px}
+  .urgent .nm{font-weight:600}
+  .urgent .meta{color:var(--soft);font-size:12.5px}
+
+  .controls{position:sticky;top:0;z-index:5;background:rgba(15,17,21,.92);backdrop-filter:blur(8px);padding:14px 0 12px;margin-top:10px;border-bottom:1px solid var(--line)}
+  .row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-bottom:8px}
+  .lab{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--faint);margin-right:4px;min-width:62px}
+  .pill{border:1px solid var(--line);background:var(--panel);color:var(--soft);padding:5px 11px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none;transition:.12s}
+  .pill:hover{border-color:#3a4150;color:var(--ink)}
+  .pill.on{background:var(--ink);color:#0f1115;border-color:var(--ink);font-weight:600}
+  .pill.cat.on[data-v="NGO"]{background:var(--ngo);border-color:var(--ngo);color:#06150e}
+  .pill.cat.on[data-v="International"]{background:var(--intl);border-color:var(--intl);color:#04101f}
+  .pill.cat.on[data-v="Culture"]{background:var(--culture);border-color:var(--culture);color:#120422}
+  .pill.cat.on[data-v="Corporate"]{background:var(--corp);border-color:var(--corp);color:#0b0f16}
+  .pill.cat.on[data-v="Food"]{background:var(--food);border-color:var(--food);color:#1c1304}
+  .pill.cat.on[data-v="Kids"]{background:var(--kids);border-color:var(--kids);color:#1f0512}
+  #q{flex:1;min-width:160px;background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:7px 12px;border-radius:8px;font-size:13.5px}
+  #q::placeholder{color:var(--faint)}
+  .count{color:var(--faint);font-size:12.5px;margin-left:auto}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px;margin-top:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-left-width:3px;border-radius:12px;padding:13px 14px;display:flex;flex-direction:column;gap:7px}
+  .card.live{background:var(--panel2)}
+  .card h3{margin:0;font-size:15.5px;line-height:1.25}
+  .tags{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+  .tag{font-size:11px;padding:2px 7px;border-radius:5px;font-weight:600;letter-spacing:.2px}
+  .tag.geo{background:#222733;color:#b9c2d2}
+  .tag.NGO{background:rgba(63,178,127,.16);color:var(--ngo)}
+  .tag.International{background:rgba(79,156,242,.16);color:var(--intl)}
+  .tag.Culture{background:rgba(164,114,240,.16);color:var(--culture)}
+  .tag.Corporate{background:rgba(124,138,163,.18);color:#aab4c6}
+  .tag.Food{background:rgba(224,169,60,.16);color:var(--food)}
+  .tag.Kids{background:rgba(239,111,166,.16);color:var(--kids)}
+  .tag.livebadge{background:rgba(255,93,93,.16);color:#ff8d8d}
+  .why{color:var(--soft);font-size:13px;flex:1}
+  .dl{font-size:12.5px;color:#ff9d9d;font-weight:600}
+  .links{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;padding-top:2px;border-top:1px solid var(--line);margin-top:2px}
+  .links span{padding-top:7px}
+  .links a{padding-top:7px}
+
+  .src{margin-top:34px}
+  .src h2{font-size:19px;margin:0 0 4px}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:11px;margin:9px 0;overflow:hidden}
+  summary{cursor:pointer;padding:13px 15px;font-weight:600;font-size:14.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"+ ";color:var(--faint)}
+  details[open] summary::before{content:"– "}
+  .body{padding:2px 16px 16px}
+  .body h4{margin:14px 0 4px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--faint)}
+  .body ul{margin:4px 0;padding-left:18px}
+  .body li{margin:4px 0;color:var(--soft);font-size:13.5px}
+  .body li b{color:var(--ink);font-weight:600}
+  .kbd{background:#222733;border:1px solid var(--line);border-radius:5px;padding:1px 6px;font-family:ui-monospace,monospace;font-size:12px;color:#c7d0de}
+  footer{color:var(--faint);font-size:12px;margin-top:36px;border-top:1px solid var(--line);padding-top:14px}
+  .hide{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <div style="font-size:12px;color:#6b7384;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Private working list, not linked from the site &middot; <a href="../" style="color:#7fb6ff">back to portfolio</a></div>
+  <h1>Event Photography Leads, Balkans</h1>
+  <div class="sub">Organizations across 8 countries that run events and hire photographers, plus what is open to apply for right now. Filter by country and type of client. Last researched 17 June 2026.</div>
+</header>
+
+<div class="wrap">
+
+  <div class="urgent" id="urgent">
+    <h2>Start here: time-sensitive this summer</h2>
+    <ul id="urgentList"></ul>
+  </div>
+
+  <div class="controls">
+    <div class="row">
+      <span class="lab">Show</span>
+      <span class="pill mode on" data-mode="all">Everything</span>
+      <span class="pill mode" data-mode="live">Apply now</span>
+      <span class="pill mode" data-mode="pitch">Pitch list</span>
+      <input id="q" placeholder="Search name, city, keyword...">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="row" id="geoRow">
+      <span class="lab">Country</span>
+      <span class="pill geo on" data-geo="all">All</span>
+    </div>
+    <div class="row" id="catRow">
+      <span class="lab">Client</span>
+      <span class="pill cat on" data-v="all">All</span>
+      <span class="pill cat" data-v="NGO">NGO &amp; nonprofit</span>
+      <span class="pill cat" data-v="International">International</span>
+      <span class="pill cat" data-v="Culture">Culture &amp; festivals</span>
+      <span class="pill cat" data-v="Corporate">Corporate &amp; conf.</span>
+      <span class="pill cat" data-v="Food">Food &amp; drink</span>
+      <span class="pill cat" data-v="Kids">Kids &amp; family</span>
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="src">
+    <h2>Where to keep finding gigs</h2>
+    <div class="sub">Set these once and new opportunities come to her inbox. Then she is not starting from scratch each month.</div>
+
+    <details open>
+      <summary>The set-once alert system (do these first)</summary>
+      <div class="body">
+        <h4>One-time registrations (be on the roster before a gig opens)</h4>
+        <ul>
+          <li><b>UNGM</b>, one gateway for procurement across 32 UN agencies. Register free as an Individual Consultant, then save keyword alerts for "photography", "photographer", "videographer", "visual documentation". <a href="https://www.ungm.org/" target="_blank">ungm.org</a></li>
+          <li><b>IOM supplier portal</b> <a href="https://www.iom.int/business-opportunities" target="_blank">iom.int/business-opportunities</a> and <b>UNHCR supplier portal</b> <a href="https://www.unhcr.org/get-involved/work-us/become-supplier" target="_blank">unhcr.org</a>. Both have photographer rosters.</li>
+          <li><b>ImpactPool</b> profile + job alerts for "photographer" and "visual communications", region Europe. <a href="https://www.impactpool.org/signup" target="_blank">impactpool.org</a></li>
+          <li><b>TED</b> (EU tenders) account, save a search on CPV code <span class="kbd">79961000</span> (photographic services) across GR, SI, HR, BA, RS, MK, AL, BG with email alerts. <a href="https://ted.europa.eu/" target="_blank">ted.europa.eu</a></li>
+          <li><b>Council of Europe EProc</b> supplier account with keyword alerts "photography", "communications". <a href="https://eproc.coe.int/" target="_blank">eproc.coe.int</a></li>
+          <li><b>Photographers for a Cause</b>, NGO-to-photographer matching, submit portfolio. <a href="https://www.photographersforacause.org/index.php/become-a-member/" target="_blank">photographersforacause.org</a></li>
+        </ul>
+        <h4>Standing feeds and alerts</h4>
+        <ul>
+          <li><b>ReliefWeb jobs</b>, the main humanitarian/NGO board. Search "photography communications visual", filter by each country, then turn the result into an RSS feed (no login) and read it in Feedly. <a href="https://reliefweb.int/jobs" target="_blank">reliefweb.int/jobs</a></li>
+          <li><b>Google Alert</b> (set to daily): <span class="kbd">("Western Balkans" OR Serbia OR "North Macedonia" OR Bosnia OR Croatia OR Albania OR Greece) AND (photographer OR photography OR "visual documentation") AND (tender OR consultant OR "open call")</span> <a href="https://www.google.com/alerts" target="_blank">google.com/alerts</a></li>
+          <li><b>LinkedIn</b>, save job searches for "photographer consultant" in Serbia, North Macedonia, Bosnia, Croatia, and follow UNDP, UNICEF, UNHCR, IOM, OSCE, Regional Cooperation Council, RYCO.</li>
+          <li><b>PhMuseum</b> publishes a monthly round-up of open calls and paid photo commissions. <a href="https://phmuseum.com/grants" target="_blank">phmuseum.com/grants</a></li>
+          <li><b>Cultural institutes</b>: follow Goethe-Institut, Institut Francais, and British Council pages in each country. They post documentation calls that never hit the formal portals.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Regional bodies and grants that fund whole-region work</summary>
+      <div class="body">
+        <ul>
+          <li><b>Regional Cooperation Council</b> (Sarajevo), summits and forums across the region. <a href="https://www.rcc.int/open_calls" target="_blank">rcc.int/open_calls</a>, press@rcc.int</li>
+          <li><b>RYCO</b> (Regional Youth Cooperation Office), youth events across 6 countries. <a href="https://www.rycowb.org/" target="_blank">rycowb.org</a>, office@rycowb.org</li>
+          <li><b>Western Balkans Fund</b>, cross-border culture grants. Partner with an applicant NGO and be named as their project photographer. <a href="https://westernbalkansfund.org/" target="_blank">westernbalkansfund.org</a></li>
+          <li><b>European Fund for the Balkans</b> and <b>Balkan Trust for Democracy</b> (German Marshall Fund), ask for grantee lists and pitch the funded organizations. <a href="https://www.balkanfund.org/" target="_blank">balkanfund.org</a></li>
+          <li><b>Creative Europe / CC4WBs</b>, EU culture funding open to Western Balkans residents, individual grants up to EUR 5,000. <a href="https://culture.ec.europa.eu/" target="_blank">culture.ec.europa.eu</a></li>
+          <li><b>SALTO South East Europe</b>, ask to be in the referral directory for youth-event documentation. <a href="https://www.salto-youth.net/rc/see/" target="_blank">salto-youth.net</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>National job boards and NGO portals, by country</summary>
+      <div class="body">
+        <ul>
+          <li><b>North Macedonia:</b> vrabotuvanje.com.mk, kariera.mk, civicamobilitas.mk/en/announcements, e-nabavki.gov.mk (public tenders)</li>
+          <li><b>Greece:</b> kariera.gr, skywalker.gr, ngoheroes.gr, eprocurement.gov.gr (search "photography services")</li>
+          <li><b>Albania:</b> duapune.com, albania.un.org/en/jobs, vacancies.osce.org, resourcecentre.al</li>
+          <li><b>Serbia:</b> poslovi.infostud.com, civilnodrustvo.gov.rs (open calls), sajam.rs/en/calendar-2026 (Belgrade Fair, ~15 fairs/yr, one press contact), shootday.com/belgrade</li>
+          <li><b>Bulgaria:</b> jobs.bg, zaplata.bg, ngobg.info, blagobektiv.org (charity photo grant)</li>
+          <li><b>Croatia:</b> mojposao.hr, infozagreb.hr/en/events, croatian-photography.com, zaklada.civilnodrustvo.hr</li>
+          <li><b>Slovenia:</b> mojedelo.com, cnvos.si/razpisi (NGO calls), fzs-zveza.si (photo competitions)</li>
+          <li><b>Bosnia:</b> posao.klix.ba, mojposao.ba, reliefweb.int (very active for BiH), europehouse.ba</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <footer>
+    Built from live web research across North Macedonia, Greece, Albania, Serbia, Bulgaria, Croatia, Slovenia, and Bosnia. Most cultural institutions and NGOs do not post "photographer wanted" notices, the way in is a short, personal email to the press or communications lead with a tight portfolio and a day rate. Verify a deadline on the source page before relying on it. This file is yours to edit: add notes, mark who you contacted, delete what does not fit.
+  </footer>
+</div>
+
+<script>
+const DATA = [
+/* ============ NORTH MACEDONIA ============ */
+{n:"Skopje 2028, European Capital of Culture",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"live",dl:"2nd open call expected, monitor",when:"",why:"Multi-year arts programme through 2028, a steady commissioning pipeline. Project grants up to EUR 50,000 and constant event documentation.",u:"https://skopje2028.mk/apply/",k:"info@skopje2028.mk"},
+{n:"UNICEF North Macedonia, photo/video roster",g:"North Macedonia",city:"Skopje",cat:"International",t:"live",dl:"Roster call, re-opens periodically",when:"",why:"National-consultant roster for recurring videography and photography across UNICEF projects.",u:"https://www.unicef.org/northmacedonia/work-unicef",k:"jobs.unicef.org"},
+{n:"Ohrid Summer Festival",g:"North Macedonia",city:"Ohrid",cat:"Culture",t:"pitch",why:"66th edition, 12 July to 20 August 2026, 45 events at landmark venues. One of the most prestigious festivals in the region.",u:"https://ohridskoleto.com.mk",k:"contact@ohridskoleto.com.mk"},
+{n:"Skopje Jazz Festival",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"43-year-old festival, concerts at major venues each autumn. Produces heavy media content.",u:"http://skopjejazzfest.com.mk/en/",k:"sjf@skopjejazzfest.com.mk"},
+{n:"Taksirat Festival",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"Annual November/December world-music and urban-arts festival across multiple venues.",u:"https://taksirat.mk",k:"info@taksirat.mk"},
+{n:"Lokomotiva / MOT Theatre Festival",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"One of the oldest international theatre festivals in the Balkans, plus year-round arts programming.",u:"https://www.lokomotiva.org.mk",k:"contact@lokomotiva.org.mk"},
+{n:"Museum of Contemporary Art (MSU)",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"Year-round exhibitions and openings that need documentation photography.",u:"https://msu.mk",k:"msu.mk (contact page)"},
+{n:"UNDP North Macedonia",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"Runs development programmes and has posted photographer/videographer consultant calls for the Western Balkans. Roster work repeats.",u:"https://www.undp.org/north-macedonia",k:"jobs.undp.org"},
+{n:"IOM North Macedonia",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"Migration agency with an active comms department, has hired national photographer/videographer consultants on multi-month contracts.",u:"https://north-macedonia.iom.int",k:"iomskopje@iom.int"},
+{n:"MCIC (Macedonian Center for Intl Cooperation)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",why:"One of the largest civil-society orgs, runs conferences, campaigns and trainings constantly.",u:"https://mcms.mk/en.html",k:"mcms@mcms.mk"},
+{n:"Open Society Foundation (OSF Western Balkans)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",why:"Major grant-maker funding civil society, runs launches and convenings needing photography.",u:"https://osfwb.org/skopje-office/",k:"info@osfwb.org"},
+{n:"Reactor, Research in Action",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",why:"Think-tank running public events and research launches, active in EU civil-society funding.",u:"https://reactor.org.mk/en/",k:"info@reactor.org.mk"},
+{n:"Goethe-Institut Skopje",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"Continuous calendar of screenings, lectures, exhibitions and debates with local artists.",u:"https://www.goethe.de",k:"kristina.gasnower@goethe.de"},
+{n:"Institut Francais de Skopje",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"Full calendar of film, lectures and arts events, has run regional photography initiatives.",u:"https://ifs.mk",k:"ifs.mk/contact"},
+{n:"British Council North Macedonia",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"Active arts programme (Culture and Creativity for the Western Balkans), prior photography projects.",u:"https://www.britishcouncil.mk",k:"contactus.mk@britishcouncil.org"},
+{n:"Vino Skop wine fair",g:"North Macedonia",city:"Skopje",cat:"Food",t:"pitch",why:"Five-day wine, gastronomy and music festival at City Park under the City of Skopje, one of the biggest food/drink events in the country.",u:"http://www.vinoskop.com/en",k:"facebook.com/vinoskopmk"},
+{n:"Skopje Beer Fest",g:"North Macedonia",city:"Skopje",cat:"Food",t:"pitch",why:"Four-day September festival, thousands of attendees, run by Password Production and the City of Skopje.",u:"https://skopjebeerfest.mk",k:"info@password.mk"},
+{n:"Password Production",g:"North Macedonia",city:"Skopje",cat:"Corporate",t:"pitch",why:"Primary event-production company (Beer Fest, D Festival, big concerts). One relationship can yield several gigs a year.",u:"https://password.mk",k:"info@password.mk"},
+{n:"Economic Chamber of North Macedonia",g:"North Macedonia",city:"Skopje",cat:"Corporate",t:"pitch",why:"Largest business association, hosts trade events and bilateral business forums.",u:"https://www.mchamber.mk/en",k:"mchamber.mk (contact)"},
+{n:"Animax Skopje Fest",g:"North Macedonia",city:"Skopje",cat:"Kids",t:"pitch",why:"Country's first animated-film festival, every November, family screenings and children's workshops.",u:"https://filmfreeway.com/AnimaxSkopjeFest",k:"FilmFreeway profile"},
+
+/* ============ GREECE ============ */
+{n:"Thessaloniki Film & Documentary Festivals",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"The two largest film festivals in SE Europe (TIFF 5 to 15 Nov, TiDF in March). Red carpets, panels, awards, the highest-volume recurring client in the north.",u:"https://filmfestival.gr/en/",k:"info@filmfestival.gr"},
+{n:"Dimitria Festival",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"Month-long municipal multi-arts festival every October, dozens of events across the city.",u:"https://e-dimitria.gr/en/",k:"dimitria.media@thessaloniki.gr"},
+{n:"Reworks Festival",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"Electronic music + audiovisual festival (Sept) plus the Reworks Agora conference (May), two events a year.",u:"https://reworks.gr/",k:"reworks.gr/contact-2"},
+{n:"HELEXPO / Thessaloniki International Fair",g:"Greece",city:"Thessaloniki",cat:"Corporate",t:"pitch",why:"Organizes 500+ events a year including the 90th TIF (Sept), tourism, jewelry and food fairs. Each is a separate photo job.",u:"https://helexpo.gr/en/",k:"hello@helexpo.gr"},
+{n:"BOUSSIAS Events",g:"Greece",city:"Athens",cat:"Corporate",t:"pitch",why:"Greece's leading B2B conference and awards organizer, dozens of branded ceremonies a year.",u:"https://www.boussiasevents.gr/",k:"calendar.boussiasevents.gr"},
+{n:"American-Hellenic Chamber of Commerce",g:"Greece",city:"Athens",cat:"Corporate",t:"pitch",why:"Full calendar of summits and conferences, all photographable corporate events.",u:"https://www.amcham.gr/",k:"info@amcham.gr"},
+{n:"Onassis Stegi / Onassis Foundation",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"One of Greece's most active cultural producers, festivals, theatre, dance, plus open calls and residencies.",u:"https://www.onassis.org/onassis-stegi",k:"infotickets@onassis.org"},
+{n:"Stavros Niarchos Foundation Cultural Center",g:"Greece",city:"Athens",cat:"International",t:"pitch",why:"Continuous public programme, summer concerts, children's activities, cultural festivals. Has a work-with-us page.",u:"https://www.snfcc.org/en/",k:"info@snfcc.org"},
+{n:"Athens Epidaurus Festival",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"Greece's premier performing-arts festival, June to August, long photo season with international artists.",u:"https://aefestival.gr/en",k:"aefestival.gr/press"},
+{n:"Benaki Museum",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"Major museum, host of the Athens Photo Festival, with its own year-round openings and events. Has dedicated events and press desks.",u:"https://www.benaki.org/",k:"press@benaki.org"},
+{n:"SolidarityNow",g:"Greece",city:"Athens / Thessaloniki",cat:"NGO",t:"pitch",why:"One of Greece's largest civil-society orgs (refugee and migrant support), community events and campaign launches.",u:"https://www.solidaritynow.org/en/",k:"recruitment@solidaritynow.org"},
+{n:"Metadrasi",g:"Greece",city:"Athens",cat:"NGO",t:"pitch",why:"Migration and integration NGO producing reports, events and campaigns that need photography.",u:"https://metadrasi.org/en/",k:"pr@metadrasi.org"},
+{n:"Goethe-Institut Greece",g:"Greece",city:"Thessaloniki / Athens",cat:"International",t:"pitch",why:"Two active branches with a dense calendar of cultural events, screenings and exhibitions.",u:"https://www.goethe.de/ins/gr/el/sta/the.html",k:"info-thessaloniki@goethe.de"},
+{n:"Thessaloniki Street Food Festival",g:"Greece",city:"Thessaloniki",cat:"Food",t:"pitch",why:"Annual street-food and music festival at HELEXPO, same organizer runs the Beer Festival. High visual demand.",u:"https://www.thessalonikistreetfoodfestival.com/",k:"@soulfoodthessaloniki"},
+{n:"Kids Fun Festival",g:"Greece",city:"Thessaloniki",cat:"Kids",t:"pitch",why:"One-day family festival with 190+ activities, benefiting the Greek Children's Village. Strong photo potential.",u:"https://kidsfunfestival.gr/",k:"facebook.com/KidsFunFestivalGreece"},
+{n:"Athens Photo World",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"International photojournalism festival, exhibitions across public spaces. A networking hub where hiring orgs see you.",u:"https://apw.gr/en/",k:"info@apw.gr"},
+{n:"MOMus Museum of Photography",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"Dedicated photography museum, runs the Photobiennale. Good for credibility and referrals to NGO clients.",u:"https://www.momus.gr/en/museum/thessaloniki-museum-photography",k:"info.photography@momus.gr"},
+{n:"IRC Hellas",g:"Greece",city:"Athens",cat:"NGO",t:"pitch",why:"International Rescue Committee, regular visual content needs for advocacy and donor reporting.",u:"https://www.rescue.org/country/greece",k:"careers.rescue.org"},
+
+/* ============ ALBANIA ============ */
+{n:"OSCE Albania, video/photo production expert",g:"Albania",city:"Tirana",cat:"International",t:"live",dl:"Deadline ~23 June 2026 (verify)",when:"2026-06-23",why:"Consultant to produce short videos for Local Youth Councils, own equipment needed. OSCE posts photographer roles at this same portal.",u:"https://vacancies.osce.org/",k:"req ALB000190"},
+{n:"Tirana Photo Festival, open call",g:"Albania",city:"Tirana",cat:"Culture",t:"live",dl:"Festival 1 to 10 July 2026",when:"2026-07-01",why:"Theme #OFFLINE, single photo / photo stories / video stories, exhibited at Tirana Lake Park. Connects you to the Albanian photo circuit.",u:"https://www.tiranaphotofestival.com/?lang=en",k:"tiranaphotofestival@gmail.com"},
+{n:"IOM Albania, communication & visibility consultant",g:"Albania",city:"Tirana",cat:"International",t:"live",dl:"Ref CON 2026/10, verify deadline",when:"",why:"Photo stories, reels and content for the EU4Migration project. Visual output explicitly listed.",u:"https://albania.iom.int/",k:"unjobs.org/offices/iom_tia"},
+{n:"Partners Albania",g:"Albania",city:"Tirana",cat:"NGO",t:"pitch",why:"20+ years convening NGOs and funders, runs the multi-day Civil Society Week, forums and competitions.",u:"https://www.partnersalbania.org/",k:"partners@partnersalbania.org"},
+{n:"National Resource Centre for Civil Society",g:"Albania",city:"Tirana / Shkodra / Vlora",cat:"NGO",t:"pitch",why:"Runs the annual Civil Society Week and national forums across three cities. Recurring multi-location work.",u:"https://resourcecentre.al/",k:"info@resourcecentre.al"},
+{n:"Mjaft! Movement",g:"Albania",city:"Tirana",cat:"NGO",t:"pitch",why:"Albania's most recognized advocacy NGO, runs campaigns and public events.",u:"https://www.mjaft.org/en",k:"facebook.com/mjaft"},
+{n:"UNDP Albania",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"Largest UN agency in country, regularly hires photo/visibility consultants for project documentation.",u:"https://www.undp.org/albania",k:"jobs.undp.org"},
+{n:"UNICEF Albania",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"Hires comms consultants with photography deliverables, keeps a standby roster.",u:"https://www.unicef.org/albania/",k:"unicef.org/albania/work-us"},
+{n:"British Council Albania",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"Runs British Cultural Week (Tirana and Durres) and the CC4WBs project, documented photo commissions.",u:"https://www.britishcouncil.al/en",k:"info.albania@britishcouncil.org"},
+{n:"Italian Cultural Institute Tirana",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"Italian Screens film festival, exhibitions and concerts, several events a year.",u:"https://iictirana.esteri.it/it/",k:"iictirana.esteri.it"},
+{n:"Alliance Francaise Tirana",g:"Albania",city:"Tirana (+5 cities)",cat:"International",t:"pitch",why:"French institute with a six-city network, cultural events and screenings throughout the year.",u:"https://aleancafranceze.al/",k:"info@aftirana.org"},
+{n:"US Embassy Tirana",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"Regular public ceremonies and cultural programming via American Spaces, run by the Public Affairs Section.",u:"https://al.usembassy.gov/",k:"embassy contact page"},
+{n:"Tirana International Film Festival",g:"Albania",city:"Tirana",cat:"Culture",t:"pitch",why:"24th edition, 21 to 27 Sept 2026 at the Palace of Congresses. Red carpet, screenings, awards. Accreditation opening soon.",u:"https://tiranafilmfest.org/",k:"info@tiranafilmfest.org"},
+{n:"Marubi National Museum of Photography",g:"Albania",city:"Shkodra",cat:"Culture",t:"pitch",why:"Albania's only national photography museum, exhibitions and education events. A natural partner.",u:"https://marubi.gov.al/",k:"info@marubi.gov.al"},
+{n:"Za Fest",g:"Albania",city:"Shkodra",cat:"Culture",t:"pitch",why:"10th edition, 23 to 25 July 2026, EU-backed multi-night festival, 95+ artists from 18+ countries.",u:"https://zafest.al/",k:"zafest.al/kontakto"},
+{n:"AmCham Albania",g:"Albania",city:"Tirana",cat:"Corporate",t:"pitch",why:"200+ member companies, CEO forums, galas and advocacy summits all year.",u:"https://amcham.com.al/",k:"info@amcham.com.al"},
+{n:"Tirana Chamber of Commerce and Industry",g:"Albania",city:"Tirana",cat:"Corporate",t:"pitch",why:"Runs medical, children's, study and green fairs plus B2B forums and the CCI Awards.",u:"https://www.cci.al/en/",k:"cci.tirana@cci.al"},
+{n:"Ahead Creative Agency",g:"Albania",city:"Tirana",cat:"Corporate",t:"pitch",why:"Full-service agency that lists event shooting as a core service, likely subcontracts to freelancers.",u:"https://ahead.al/",k:"info@ahead.al"},
+{n:"National Puppet Theatre",g:"Albania",city:"Tirana",cat:"Kids",t:"pitch",why:"~500 performances a year, recently restored under EU4Culture, special events and school programmes.",u:"https://www.tirana.al/en",k:"Tirana municipality culture dept"},
+
+/* ============ SERBIA ============ */
+{n:"Belgrade Photo Month, portfolio review",g:"Serbia",city:"Belgrade",cat:"Culture",t:"live",dl:"Open call, check page",when:"",why:"The region's biggest photo festival runs portfolio reviews, the central networking hub for photographers in Serbia.",u:"https://www.belgradephotomonth.org/en/open-calls/",k:"info@belgradephotomonth.org"},
+{n:"Belgrade Book Fair, press accreditation",g:"Serbia",city:"Belgrade",cat:"Culture",t:"live",dl:"Fair 23 to 31 Oct 2026",when:"2026-10-23",why:"69th edition, one of the largest cultural events in SE Europe. Photographer accreditation via the press team.",u:"https://sajamknjiga.rs/en/acreditation/press-acreditation/",k:"knjigepress@sajam.rs"},
+{n:"UNDP Serbia",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Programme events and visibility campaigns across Serbia, has commissioned photographer rosters.",u:"https://www.undp.org/serbia",k:"undp.org/serbia/jobs"},
+{n:"UNICEF Serbia, photographer roster",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Runs a paid photographer roster (event coverage to full field libraries), re-opens periodically. Watch for it.",u:"https://www.unicef.org/serbia",k:"untalent.org"},
+{n:"Trag Foundation",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",why:"Serbia's leading community-philanthropy foundation, multiple annual events and grantee showcases.",u:"https://tragfondacija.org/en/",k:"office@tragfondacija.org"},
+{n:"Catalyst Balkans",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",why:"Hosts philanthropy events, round-tables and award ceremonies across the Balkans.",u:"https://catalystbalkans.org",k:"info@catalystbalkans.org"},
+{n:"Ana and Vlade Divac Foundation",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",why:"One of Serbia's most prominent foundations, regular galas, auctions and humanitarian campaigns.",u:"https://www.divac.com/en/Home",k:"@fondacijadivac"},
+{n:"Goethe-Institut Belgrade",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Year-round photography exhibitions, film and music events. 2026 is the institute's 75th anniversary.",u:"https://www.goethe.de/ins/cs/en",k:"info-belgrad@goethe.de"},
+{n:"British Council Serbia",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Arts programmes and showcase events, ran the Out of Frame photography initiative.",u:"https://www.britishcouncil.rs/en",k:"britishcouncil.rs/en/about/contact"},
+{n:"Belgrade Dance Festival",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"Major international contemporary dance festival, clear performance-photography needs.",u:"https://belgradedancefestival.com/en",k:"protocol@belgradedancefestival.com"},
+{n:"Free Zone Film Festival",g:"Serbia",city:"Belgrade / Novi Sad / Nis",cat:"Culture",t:"pitch",why:"Human-rights film festival in four cities every November, social-documentary aesthetic, small team that would value a regular photographer.",u:"https://slobodnazona.rs/about-us/?lang=en",k:"facebook: Slobodna Zona"},
+{n:"Nisville International Jazz Festival",g:"Serbia",city:"Nis",cat:"Culture",t:"pitch",why:"Major jazz festival at Nis Fortress every August, 16+ international bands, strong press infrastructure.",u:"https://nisville.com/en/",k:"info@nisville.com"},
+{n:"Wine Vision by Open Balkan",g:"Serbia",city:"Belgrade",cat:"Food",t:"pitch",why:"10 to 12 Oct 2026, the largest wine and food fair in the Western Balkans (535 exhibitors, 68 countries).",u:"https://winevisionfair.com",k:"winevisionfair.com/contact"},
+{n:"Ethnic Food and Drinks Fair",g:"Serbia",city:"Belgrade",cat:"Food",t:"pitch",why:"20th edition, 12 to 15 Nov 2026 at Belgrade Fair, ~343 exhibitors of traditional food.",u:"https://etnohip.rs/en/home/",k:"etnohrana@sajam.rs"},
+{n:"Startit (SEE ICT)",g:"Serbia",city:"Belgrade / Novi Sad",cat:"Corporate",t:"pitch",why:"Non-profit running 100+ tech and AI events a year including AI Week (1000+ attendees).",u:"https://startit.rs",k:"info@startit.rs"},
+{n:"Data Science Conference",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"Major tech conference (Nov), 3000+ attendees, 300+ speakers. High-production event that hires a dedicated photographer.",u:"https://datasciconference.com",k:"datasciconference.com/about-us"},
+{n:"Blink Event & PR Agency",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"500+ events since 2008, conferences and press events for Serbian and international clients. One relationship, many gigs.",u:"https://blink-blink.co.rs/en/home/",k:"dragana@blink-blink.co.rs"},
+{n:"New Media Team",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"Leading regional comms agency that treats photo/video as core, runs events for a wide client base.",u:"https://newmediateam.rs/en",k:"office@newmediateam.rs"},
+{n:"British-Serbian Chamber of Commerce",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"UK-Western Balkans trade missions and business events, has a dedicated communications manager.",u:"https://britserbcham-events.com",k:"stefan.rankovic@britserbcham.com"},
+{n:"Bosko Buha Theatre",g:"Serbia",city:"Belgrade",cat:"Kids",t:"pitch",why:"Serbia's oldest professional children's theatre, full annual season of productions and events.",u:"https://buha.rs/en/about-theatre",k:"buha.rs/en/contact"},
+
+/* ============ BULGARIA ============ */
+{n:"Webit 2026, media accreditation",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"live",dl:"Event 23 June 2026, apply now",when:"2026-06-23",why:"Large AI and tech conference, 3000+ attendees. Free media accreditation for independent creators is open now.",u:"https://www.webit.org/en/webit/2026/media.php",k:"office@webit.org"},
+{n:"Charity through the Lens (BCause)",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"live",dl:"Annual photo grant, check cycle",when:"",why:"Annual competition that grants 2,000 BGN to photography projects on charity and civil-society themes.",u:"https://www.blagobektiv.org",k:"bcause.bg"},
+{n:"Bulgarian Center for Not-for-Profit Law",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Hosts the International Fundraising Conference, the largest NGO fundraising event in Bulgaria, plus a recurring calendar.",u:"https://bcnl.org/en/",k:"info@bcnl.org"},
+{n:"Sofia Pride",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Parade plus film festival and business forum, tens of thousands of attendees, three photo opportunities in one week.",u:"https://en.sofiapride.org/",k:"en.sofiapride.org/contact-us"},
+{n:"BCause Foundation",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Philanthropy NGO running the photo competition plus fundraising symposia and civic events.",u:"https://www.bcause.bg/en/",k:"bcause.bg (contact)"},
+{n:"UNICEF Bulgaria",g:"Bulgaria",city:"Sofia",cat:"International",t:"pitch",why:"Active field programme, regularly procures communications and visual-content consultants via tender.",u:"https://www.unicef.org/bulgaria/en/tenders-and-vacancies",k:"unicef.org/bulgaria"},
+{n:"Goethe-Institut Bulgaria",g:"Bulgaria",city:"Sofia",cat:"International",t:"pitch",why:"Exhibitions, Night of Young Artists, photography residencies, recurring visual-arts programming.",u:"https://www.goethe.de/ins/bg/de/index.html",k:"info-sofia@goethe.de"},
+{n:"Institut Francais de Bulgarie",g:"Bulgaria",city:"Sofia",cat:"International",t:"pitch",why:"Photography exhibitions, film festival and cultural events year-round. Has a named comms contact.",u:"https://institutfrancais.bg/fr/",k:"zdrava.stoeva@institutfrancais.bg"},
+{n:"America for Bulgaria Foundation",g:"Bulgaria",city:"Sofia",cat:"International",t:"pitch",why:"Funds cultural events and photography exhibitions, accepts proposals year-round.",u:"https://us4bg.org/",k:"ABF@us4bg.org"},
+{n:"A to JazZ Festival",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"2 to 5 July 2026, 15th edition, open-air at South Park, 20,000+ attendees, art bazaar and pro talks. Email now for July access.",u:"https://atojazz.bg/en/",k:"yana@atojazz.bg"},
+{n:"Bansko Jazz Festival",g:"Bulgaria",city:"Bansko",cat:"Culture",t:"pitch",why:"31 July to 9 Aug 2026, 29th edition, 10-day open-air festival, mountain-resort setting.",u:"https://banskojazzfest.bg/en/home/",k:"banskojazz@fest-bg.com"},
+{n:"Opera Open, State Opera Plovdiv",g:"Bulgaria",city:"Plovdiv",cat:"Culture",t:"pitch",why:"23 June to 9 Sept 2026 at the Ancient Theatre, international cast, spectacular outdoor venue, strong PR demand.",u:"https://operaplovdiv.bg/en/site/index",k:"pr@operaplovdiv.bg"},
+{n:"Varna Summer International Music Festival",g:"Bulgaria",city:"Varna",cat:"Culture",t:"pitch",why:"100-year-old festival with a summer-long programme of concerts run by Varna Municipality.",u:"https://varnasummerfest.org/en/",k:"office@varnaculture.bg"},
+{n:"Sofia International Film Festival",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"FIAPF-accredited, the main competitive film festival in Bulgaria (March). Pitch now for 2027.",u:"https://siff.bg/en",k:"press@siff.bg"},
+{n:"Crossroads (StartUp Bulgaria)",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"pitch",why:"29 to 30 Oct 2026, SE Europe's flagship startup conference, 4000+ attendees, keeps a photo gallery.",u:"https://www.startupbulgaria.eu/crossroads",k:"startupbulgaria.eu/contact"},
+{n:"AmCham Bulgaria",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"pitch",why:"Regular networking events, regional summit, July 4 celebration, hackathon. Named events manager.",u:"https://amcham.bg/",k:"nadia@amcham.bg"},
+{n:"Restaurant Week Bulgaria",g:"Bulgaria",city:"Sofia / Varna / Plovdiv",cat:"Food",t:"pitch",why:"Multiple editions a year across three cities, 100+ restaurants each, consistent food and ambiance photography.",u:"https://sofiarestaurantweek.com/",k:"support@restaurantweek.bg"},
+{n:"Bacchus StrEAT Fest",g:"Bulgaria",city:"Sofia",cat:"Food",t:"pitch",why:"Bulgaria's main food and wine media brand, runs gourmet street-food festivals and wine events.",u:"https://www.bacchus.bg/events/",k:"bacchus.bg (events)"},
+
+/* ============ CROATIA ============ */
+{n:"Dubrovnik Summer Festival, accreditation",g:"Croatia",city:"Dubrovnik",cat:"Culture",t:"live",dl:"Festival 10 July to 25 Aug 2026, apply now",when:"2026-07-10",why:"77th edition, 70+ performances across 25 Old Town venues. Media accreditation is open now.",u:"https://www.dubrovnik-festival.hr/en/media-accreditation",k:"dajana.brzica@dubrovnik-festival.hr"},
+{n:"Sail Croatia, photographer on board",g:"Croatia",city:"Split / Dubrovnik",cat:"Corporate",t:"live",dl:"Rolling, June to September season",when:"",why:"Recruiting photographers trip-by-trip all summer. Pay is cabin and meals, a foot-in-the-door with a recurring travel operator.",u:"https://www.sail-croatia.com/about/work-with-us/photographer",k:"sail-croatia.com form"},
+{n:"INmusic Festival, press",g:"Croatia",city:"Zagreb",cat:"Culture",t:"live",dl:"Festival 22 to 24 June 2026",when:"2026-06-22",why:"Croatia's largest outdoor music festival on Lake Jarun. 2026 accreditation closed, email for last-minute or the 2027 list.",u:"https://www.inmusicfestival.com/en/press",k:"press@inmusicfestival.com"},
+{n:"VINART",g:"Croatia",city:"Zagreb",cat:"Food",t:"pitch",why:"Vinart Grand Tasting (March) plus Vinski Grad public wine and food festival (June, ~18 days). Two recurring events.",u:"https://vinart.hr/en/home/",k:"info@vinart.hr"},
+{n:"Organ Vida Photography Festival",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"International photography festival each September, strong network of photographers and curators. Pitch as a production/documentation partner.",u:"https://ovfestival.org/",k:"info@organvida.com"},
+{n:"Animafest Zagreb",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"World Festival of Animated Film (June), FIAPF-accredited, screenings and events across the city.",u:"https://www.animafest.hr/en",k:"info@animafest.hr"},
+{n:"Ultra Europe",g:"Croatia",city:"Split",cat:"Culture",t:"pitch",why:"One of Europe's largest EDM festivals (10 to 12 July 2026), formal media accreditation and photo pit.",u:"https://ultraeurope.com/",k:"press@ultraeurope.com"},
+{n:"Infobip Shift Conference",g:"Croatia",city:"Zadar",cat:"Corporate",t:"pitch",why:"SE Europe's largest developer conference (Sept), 5000+ attendees, press passes for all legit media.",u:"https://shift.infobip.com/",k:"shift@infobip.com"},
+{n:"Goethe-Institut Croatia",g:"Croatia",city:"Zagreb",cat:"International",t:"pitch",why:"60+ events a year, exhibitions, concerts, screenings and school workshops.",u:"https://www.goethe.de/ins/hr/hr/m/index.html",k:"info-zagreb@goethe.de"},
+{n:"Institut Francais de Croatie",g:"Croatia",city:"Zagreb",cat:"International",t:"pitch",why:"Francophonie Festival, screenings, exhibitions and concerts, ~60 events in peak season.",u:"https://institutfrancais.hr/fr/accueil/",k:"institut@institutfrancais.hr"},
+{n:"Spancirfest",g:"Croatia",city:"Varazdin",cat:"Culture",t:"pitch",why:"10-day international street festival (21 to 30 Aug 2026), 300,000+ visitors, 400+ performers. Press accreditation opens in July.",u:"https://www.spancirfest.com/",k:"spancirfest.com/en/press"},
+{n:"International Children's Festival Sibenik",g:"Croatia",city:"Sibenik",cat:"Kids",t:"pitch",why:"One of the world's oldest children's culture events (since 1958), 200+ programmes, 17 countries. Heavy documentation needs.",u:"https://www.mdf-sibenik.com/",k:"ines@mdf-sibenik.com"},
+{n:"Zagreb Film Festival",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"24th edition (9 to 15 Nov 2026), one of Croatia's most prestigious festivals, professional accreditation track.",u:"https://zff.hr/en/",k:"akreditacije@zff.hr"},
+{n:"SOLIDARNA Foundation",g:"Croatia",city:"Zagreb",cat:"NGO",t:"pitch",why:"Human-rights foundation, recurring fundraising galas and advocacy campaigns needing documentary photography.",u:"https://solidarna.hr/",k:"solidarna.hr (contact)"},
+{n:"IOM Croatia",g:"Croatia",city:"Zagreb",cat:"International",t:"pitch",why:"UN migration agency, integration programmes and awareness campaigns. Photography tenders via procurement.",u:"https://croatia.iom.int/",k:"iomzagreb@iom.int"},
+{n:"Cest is d'Best Street Festival",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"International street festival (late May/June), 400 entertainers across central Zagreb squares.",u:"https://www.cestisdbest.com/en/home-eng/",k:"cestisdbest.com (Cest Team)"},
+{n:"British Council Croatia",g:"Croatia",city:"Zagreb",cat:"International",t:"pitch",why:"Year-round UK-Croatia cultural events and arts programmes requiring documentation.",u:"https://www.britishcouncil.hr/en",k:"britishcouncil.hr (form)"},
+
+/* ============ SLOVENIA ============ */
+{n:"Festival Lent, press accreditation",g:"Slovenia",city:"Maribor",cat:"Culture",t:"live",dl:"Festival 26 June to 4 July 2026, apply now",when:"2026-06-26",why:"The largest open-air festival in Slovenia. Press accreditation for photographers is being accepted.",u:"https://nd-mb.si/en/festival-lent/festival-lent-2026/",k:"program@festival-lent.si"},
+{n:"Ljubljana Jazz Festival, press accreditation",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"live",dl:"Festival 1 to 4 July 2026, apply now",when:"2026-07-01",why:"67th edition at Cankarjev dom. Formal accreditation with a photographer role, apply at least two days before.",u:"https://www.cd-cc.si/en/press-accreditations",k:"sasa.globacnik@cd-cc.si"},
+{n:"Ljubljana Pride",g:"Slovenia",city:"Ljubljana",cat:"NGO",t:"pitch",why:"Annual parade plus weeks of exhibitions, concerts and workshops. Strong visual documentation needs.",u:"https://ljubljanapride.org/en/",k:"ljubljanapride.org (contact)"},
+{n:"UNICEF Slovenia",g:"Slovenia",city:"Ljubljana",cat:"International",t:"pitch",why:"Fundraising campaigns, advocacy events and donor evenings requiring professional photography.",u:"https://www.unicef.si/",k:"info@unicef.si"},
+{n:"Amnesty International Slovenia",g:"Slovenia",city:"Ljubljana",cat:"NGO",t:"pitch",why:"Public advocacy events and human-rights exhibitions in Ljubljana.",u:"https://www.amnesty.si/",k:"amnesty@amnesty.si"},
+{n:"Goethe-Institut Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"International",t:"pitch",why:"Exhibitions, screenings, concerts and literary events, part of the EUNIC cluster (one referral cascades).",u:"https://www.goethe.de/ins/si/sl/index.html",k:"info-ljubljana@goethe.de"},
+{n:"Institut Francais de Slovenie",g:"Slovenia",city:"Ljubljana",cat:"International",t:"pitch",why:"Monthly programme of literary evenings, screenings, children's events and exhibitions.",u:"https://www.institutfrance.si/",k:"ifs@institutfrance.si"},
+{n:"Italian Cultural Institute Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"International",t:"pitch",why:"Regular cultural events and exhibitions, shares a building with the French institute.",u:"https://iiclubiana.esteri.it/iic_lubiana/sl",k:"segreteria.iiclubiana@esteri.it"},
+{n:"Festival Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"74th edition, June to September, Slovenia's largest summer festival across outdoor venues. Huge documentation needs.",u:"https://www.ljubljanafestival.si/en/",k:"tina.berk@ljubljanafestival.si"},
+{n:"Kino Siska Centre for Urban Culture",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"One of Ljubljana's most active venues, heavy year-round events calendar, formal accreditation process.",u:"https://www.kinosiska.si/en/",k:"anjapia.biscak@kinosiska.si"},
+{n:"Cankarjev dom",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"The dominant venue and producer, runs the jazz festival, the film festival (LIFFe), the wine festival and more. One door, many events.",u:"https://www.cd-cc.si/en",k:"sasa.globacnik@cd-cc.si"},
+{n:"Ljubljana Art Weekend",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"Four-day visual-arts festival (May) across galleries and project spaces. Photography is a listed discipline.",u:"https://ljubljanaartweekend.com/",k:"hello@ljubljanaartweekend.com"},
+{n:"PODIM Conference",g:"Slovenia",city:"Maribor",cat:"Corporate",t:"pitch",why:"The leading startup and investor event in the Alps-Adriatic region, 1000+ attendees, photographer is a listed media role.",u:"https://podim.org/",k:"info@podim.org"},
+{n:"Pristop Communications",g:"Slovenia",city:"Ljubljana",cat:"Corporate",t:"pitch",why:"One of Slovenia's leading comms agencies, agency ties generate repeat commissions across many clients.",u:"https://www.linkedin.com/company/pristop",k:"LinkedIn"},
+{n:"Odprta Kuhna (Open Kitchen)",g:"Slovenia",city:"Ljubljana",cat:"Food",t:"pitch",why:"Friday street-food market March to October, 65+ vendors, high social and press photography demand all season.",u:"https://www.odprtakuhna.si/en/",k:"info@odprtakuhna.si"},
+{n:"Slovenian Wine Festival",g:"Slovenia",city:"Ljubljana",cat:"Food",t:"pitch",why:"The country's largest wine showcase (Nov), 140 winemakers, 3400+ attendees, has a media section.",u:"https://slovenskifestivalvin.si/en/",k:"lara.petkovsek@proevent.si"},
+{n:"Pionirski dom (Centre for Youth Culture)",g:"Slovenia",city:"Ljubljana",cat:"Kids",t:"pitch",why:"Runs about a dozen festivals a year including the ZOOM children's film festival. Largest children's culture institution in Slovenia.",u:"https://pionirski-dom.si/",k:"tajnistvo@pionirski-dom.si"},
+
+/* ============ BOSNIA & HERZEGOVINA ============ */
+{n:"Sarajevo Film Festival, press accreditation",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"live",dl:"Early bird closes 30 June 2026",when:"2026-06-30",why:"32nd SFF, 14 to 21 Aug 2026, the biggest film festival in SE Europe. The clearest open path with a hard deadline. First-timers show prior festival coverage.",u:"https://www.sff.ba/en/page/press-accreditation",k:"accreditations@sff.ba"},
+{n:"UNICEF Bosnia, photographer LTA",g:"Bosnia",city:"Sarajevo",cat:"International",t:"live",dl:"Recently closed, monitor for re-opening",when:"",why:"Long-Term Agreement roster of photographers for field and event documentation, shared across UN agencies in BiH. The single highest-value recurring call.",u:"https://jobs.unicef.org",k:"jobs.unicef.org"},
+{n:"CURE Foundation, documentation consultant",g:"Bosnia",city:"Sarajevo",cat:"NGO",t:"live",dl:"Recurring consultancy, pitch direct",when:"",why:"Regularly hires a photo/video consultant for projects (e.g. ~400 photos + a short video per cycle). Runs the annual PitchWise festival.",u:"https://fondacijacure.org/en/",k:"info@fondacijacure.org"},
+{n:"Mostar Summer Fest, media pass",g:"Bosnia",city:"Mostar",cat:"Culture",t:"live",dl:"Festival 2 to 4 July 2026",when:"2026-07-02",why:"Large open-air music festival that commissions photography. Email now to request media credentials.",u:"https://www.facebook.com/mostarsummerfest",k:"festival press email"},
+{n:"Mozaik Foundation",g:"Bosnia",city:"Sarajevo",cat:"NGO",t:"pitch",why:"Youth entrepreneurship and community events across BiH, active multi-city calendar.",u:"https://mozaik.ba/en/",k:"info@mozaik.ba"},
+{n:"Post-Conflict Research Center",g:"Bosnia",city:"Sarajevo",cat:"NGO",t:"pitch",why:"Runs the PEACE and WARM festivals, commemorations and youth academies, plus a magazine that uses photographers.",u:"https://p-crc.org/",k:"info@p-crc.org"},
+{n:"Center for Civil Society Promotion (CPCD)",g:"Bosnia",city:"Sarajevo",cat:"NGO",t:"pitch",why:"One of the oldest civil-society umbrella orgs, regular trainings, conferences and public events.",u:"https://civilnodrustvo.ba/en/",k:"info@civilnodrustvo.ba"},
+{n:"OSCE Mission to Bosnia",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"One of the largest OSCE missions, runs events across BiH continually, structural need for a photographer plus external consultants.",u:"https://bih.osce.org",k:"vacancies.osce.org"},
+{n:"Europe House Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"EU-themed cultural events, exhibitions (annual Photo BiH) and youth engagement across BiH.",u:"https://europehouse.ba/",k:"info@europehouse.ba"},
+{n:"UNDP Bosnia",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"Governance, environment and resilience programmes, has hired visual storytellers on short consultancies.",u:"https://www.undp.org/bosnia-herzegovina",k:"undpjobs.net"},
+{n:"Goethe-Institut Bosnia",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"German film weeks, exhibitions and open calls in Sarajevo and Banja Luka, documented events need photography.",u:"https://www.goethe.de/ins/ba/",k:"info-sarajevo@goethe.de"},
+{n:"Institut Francais de Bosnie",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"French cultural events, screenings, concerts and exhibitions in Sarajevo, Mostar and Banja Luka.",u:"https://institutfrancais.ba/fr/",k:"culture@institutfrancais.ba"},
+{n:"British Council Bosnia",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"UK-BiH cultural exchange events, workshops and a creative-grants programme.",u:"https://www.britishcouncil.ba/en",k:"British.Council@britishcouncil.ba"},
+{n:"MESS International Theatre Festival",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"66th edition (October), one of the oldest international theatre festivals in Europe.",u:"https://mess.ba/en/",k:"mess.ba (press)"},
+{n:"Jazz Fest Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"30th anniversary (4 to 7 Nov 2026), the largest jazz festival in SE Europe, dedicated press section.",u:"https://jazzfest.ba/en/",k:"jazzfest.ba (press)"},
+{n:"Bascarsija Nights",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"Month-long July festival of opera, ballet, theatre, concerts and children's programmes across the Old Town.",u:"https://bascarsijskenoci.bkc.ba/en/",k:"bascarsijskenoci@bkc.ba"},
+{n:"Sarajevo StreeAt Food Festival",g:"Bosnia",city:"Sarajevo",cat:"Food",t:"pitch",why:"Three-week summer festival, 100+ vendors, nightly concerts and live cooking shows filmed for TV.",u:"https://ssff.ba",k:"festival facebook"},
+{n:"Halal Expo Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"Food",t:"pitch",why:"International halal industry expo (24 to 27 June 2026), media partners already listed.",u:"https://halalexposarajevo.com/",k:"info@halalexposarajevo.com"},
+{n:"FEDU Children's Arts Festival",g:"Bosnia",city:"Sarajevo",cat:"Kids",t:"pitch",why:"International performing-arts festival for children 6 to 14, the first of its kind in BiH.",u:"https://fedu.ba/",k:"info@fedu.ba"},
+{n:"Republic Marketing Agency",g:"Bosnia",city:"Sarajevo",cat:"Corporate",t:"pitch",why:"20+ years, official PR agency for major Sarajevo events, subcontracts event photography. One relationship, many clients.",u:"https://re-public.ba/",k:"info@re-public.ba"},
+
+/* ============ REGIONAL ============ */
+{n:"Regional Cooperation Council",g:"Regional",city:"Sarajevo",cat:"International",t:"pitch",why:"Summits, forums and NGO events across the Western Balkans, commissions event support including documentation.",u:"https://www.rcc.int/open_calls",k:"press@rcc.int"},
+{n:"RYCO (Regional Youth Cooperation Office)",g:"Regional",city:"Tirana / region",cat:"International",t:"pitch",why:"Youth exchanges and summits across 6 countries, posts procurements and brand campaigns.",u:"https://www.rycowb.org/",k:"office@rycowb.org"},
+{n:"Belgrade Photo Month (regional hub)",g:"Regional",city:"Belgrade",cat:"Culture",t:"pitch",why:"The primary photographer network in the region, New Talents open call and portfolio reviews build regional contacts.",u:"https://www.belgradephotomonth.org/",k:"info@belgradephotomonth.org"},
+{n:"Open Society Foundations Western Balkans",g:"Regional",city:"Skopje / region",cat:"NGO",t:"pitch",why:"Active in 5 capitals, funds initiatives whose grantees and events need documentation. Ask to join their supplier list.",u:"https://osfwb.org/",k:"info@osfwb.org"},
+{n:"Photographers for a Cause",g:"Regional",city:"Remote",cat:"NGO",t:"pitch",why:"Matches humanitarian photographers with NGO projects on paid and pro-bono terms. Submit a portfolio to be listed.",u:"https://www.photographersforacause.org/",k:"info@photographersforacause.org"}
+];
+
+const CATS = ["NGO","International","Culture","Corporate","Food","Kids"];
+const state = {mode:"all", geo:"all", cat:"all", q:""};
+
+// build country pills from data
+const geos = [...new Set(DATA.map(d=>d.g))].sort((a,b)=> a==="Regional"?1 : b==="Regional"?-1 : a.localeCompare(b));
+const geoRow = document.getElementById("geoRow");
+geos.forEach(g=>{
+  const s=document.createElement("span");
+  s.className="pill geo"; s.dataset.geo=g; s.textContent=g;
+  geoRow.appendChild(s);
+});
+
+function matches(d){
+  if(state.mode!=="all" && d.t!==state.mode) return false;
+  if(state.geo!=="all" && d.g!==state.geo) return false;
+  if(state.cat!=="all" && d.cat!==state.cat) return false;
+  if(state.q){
+    const hay=(d.n+" "+d.city+" "+d.g+" "+d.cat+" "+d.why+" "+(d.k||"")).toLowerCase();
+    if(!hay.includes(state.q)) return false;
+  }
+  return true;
+}
+
+function linkOut(u){
+  if(!u) return "";
+  let href=u; if(!/^https?:\/\//.test(href)) href="https://"+href;
+  let label=u.replace(/^https?:\/\//,"").replace(/\/$/,"");
+  if(label.length>34) label=label.slice(0,32)+"...";
+  return `<a href="${href}" target="_blank" rel="noopener">${label}</a>`;
+}
+function contactOut(k){
+  if(!k) return "";
+  if(/@/.test(k) && !/\s/.test(k)) return `<a href="mailto:${k}">${k}</a>`;
+  return `<span>${k}</span>`;
+}
+
+function render(){
+  const grid=document.getElementById("grid");
+  const list=DATA.filter(matches);
+  grid.innerHTML = list.map(d=>{
+    const col = `var(--${d.cat==="NGO"?"ngo":d.cat==="International"?"intl":d.cat==="Culture"?"culture":d.cat==="Corporate"?"corp":d.cat==="Food"?"food":"kids"})`;
+    return `<div class="card ${d.t==='live'?'live':''}" style="border-left-color:${col}">
+      <div class="tags">
+        <span class="tag geo">${d.g}${d.city?", "+d.city:""}</span>
+        <span class="tag ${d.cat}">${d.cat}</span>
+        ${d.t==='live'?'<span class="tag livebadge">APPLY NOW</span>':''}
+      </div>
+      <h3>${d.n}</h3>
+      ${d.dl?`<div class="dl">${d.dl}</div>`:''}
+      <div class="why">${d.why}</div>
+      <div class="links">${linkOut(d.u)}${contactOut(d.k)}</div>
+    </div>`;
+  }).join("");
+  const live=list.filter(d=>d.t==='live').length;
+  document.getElementById("count").textContent = `${list.length} shown (${live} open to apply, ${list.length-live} to pitch)`;
+}
+
+// urgent box: live items with a near-term date, sorted
+function renderUrgent(){
+  const soon=DATA.filter(d=>d.when).sort((a,b)=>a.when.localeCompare(b.when));
+  document.getElementById("urgentList").innerHTML = soon.map(d=>
+    `<li><span class="when">${d.dl}</span><span class="nm">${d.n}</span> <span class="meta">, ${d.g}. ${contactOut(d.k)}</span></li>`
+  ).join("");
+}
+
+document.addEventListener("click",e=>{
+  const p=e.target.closest(".pill"); if(!p) return;
+  if(p.classList.contains("mode")){document.querySelectorAll(".pill.mode").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.mode=p.dataset.mode;}
+  else if(p.classList.contains("geo")){document.querySelectorAll(".pill.geo").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.geo=p.dataset.geo;}
+  else if(p.classList.contains("cat")){document.querySelectorAll(".pill.cat").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.cat=p.dataset.v;}
+  render();
+});
+document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
+
+renderUrgent();
+render();
+</script>
+</body>
+</html>
