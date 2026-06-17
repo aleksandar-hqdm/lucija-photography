@@ -59,7 +59,11 @@
   .tag.Food{background:rgba(224,169,60,.16);color:var(--food)}
   .tag.Kids{background:rgba(239,111,166,.16);color:var(--kids)}
   .tag.livebadge{background:rgba(255,93,93,.16);color:#ff8d8d}
+  .tag.funded{background:rgba(224,169,60,.14);color:var(--food);border:1px solid rgba(224,169,60,.4)}
+  .pill.fund.on[data-fund="yes"]{background:var(--food);border-color:var(--food);color:#1c1304}
   .why{color:var(--soft);font-size:13px;flex:1}
+  .donor{font-size:11.5px;color:#828b9c;margin-top:-2px}
+  .donor b{color:#cdb079;font-weight:600}
   .dl{font-size:12.5px;color:#ff9d9d;font-weight:600}
   .links{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;padding-top:2px;border-top:1px solid var(--line);margin-top:2px}
   .links span{padding-top:7px}
@@ -86,7 +90,7 @@
 <header>
   <div style="font-size:12px;color:#6b7384;letter-spacing:.4px;text-transform:uppercase;margin-bottom:6px">Private working list, not linked from the site &middot; <a href="../" style="color:#7fb6ff">back to portfolio</a></div>
   <h1>Event Photography Leads, Balkans</h1>
-  <div class="sub">Organizations across 8 countries that run events and hire photographers, plus what is open to apply for right now. Filter by country and type of client. Last researched 17 June 2026.</div>
+  <div class="sub">Organizations across the Balkans that run events and hire photographers, plus what is open to apply for right now. Filter by country, client type, or the donor-funded NGOs (smaller orgs that won a grant and now run events on the ground). Last updated 17 June 2026.</div>
 </header>
 
 <div class="wrap">
@@ -118,6 +122,11 @@
       <span class="pill cat" data-v="Corporate">Corporate &amp; conf.</span>
       <span class="pill cat" data-v="Food">Food &amp; drink</span>
       <span class="pill cat" data-v="Kids">Kids &amp; family</span>
+    </div>
+    <div class="row" id="fundRow">
+      <span class="lab">Funding</span>
+      <span class="pill fund on" data-fund="all">All</span>
+      <span class="pill fund" data-fund="yes">Donor-funded NGOs</span>
     </div>
   </div>
 
@@ -161,6 +170,30 @@
           <li><b>Creative Europe / CC4WBs</b>, EU culture funding open to Western Balkans residents, individual grants up to EUR 5,000. <a href="https://culture.ec.europa.eu/" target="_blank">culture.ec.europa.eu</a></li>
           <li><b>SALTO South East Europe</b>, ask to be in the referral directory for youth-event documentation. <a href="https://www.salto-youth.net/rc/see/" target="_blank">salto-youth.net</a></li>
         </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Find more donor-funded NGOs (read the grantee databases)</summary>
+      <div class="body">
+        <p style="color:var(--soft);font-size:13.5px;margin:6px 0 2px">The smaller NGOs that hire are the ones that just won a grant. These databases list who won what, where it runs, and how to reach them. New names appear every funding round.</p>
+        <h4>Grantee lists (named NGOs, ready to pitch)</h4>
+        <ul>
+          <li><b>Civica Mobilitas</b> grantee directory, the Swiss-funded re-granter in North Macedonia. Its "addressar" is a live list of small local NGOs running events. <a href="https://civicamobilitas.mk/en/" target="_blank">civicamobilitas.mk</a></li>
+          <li><b>SMART Balkans</b> grants, the Norwegian-funded programme covering all six Western Balkan countries. <a href="https://smartbalkansproject.org/grants/" target="_blank">smartbalkansproject.org/grants</a></li>
+          <li><b>NED (National Endowment for Democracy)</b> grants database, searchable per country with project descriptions. <a href="https://www.ned.org/region/central-and-eastern-europe/" target="_blank">ned.org grants</a></li>
+          <li><b>Rockefeller Brothers Fund</b> and <b>Sigrid Rausing Trust</b> grantee pages, smaller intimate orgs with no in-house photographer. <a href="https://www.rbf.org/grantees" target="_blank">rbf.org/grantees</a>, <a href="https://www.sigrid-rausing-trust.org/grantees/" target="_blank">sigrid-rausing-trust.org</a></li>
+          <li><b>Western Balkans Fund</b> grantees (cross-border culture and youth projects). <a href="https://westernbalkansfund.org/our-grantees/" target="_blank">westernbalkansfund.org/our-grantees</a></li>
+        </ul>
+        <h4>Who-won-the-contract databases (the "Austrian NGO in Macedonia" pattern)</h4>
+        <ul>
+          <li><b>EU Financial Transparency System</b>, every EU grant beneficiary, searchable by country. <a href="https://ec.europa.eu/budget/financial-transparency-system/" target="_blank">ec.europa.eu FTS</a></li>
+          <li><b>TED</b> contract AWARD notices, who won EU-funded service contracts (search CPV 79961000 + photography). <a href="https://ted.europa.eu/" target="_blank">ted.europa.eu</a></li>
+          <li><b>Austrian Development Agency</b> projects (the Austrian-implementer pattern). <a href="https://www.entwicklung.at/en/ada/where-we-work" target="_blank">entwicklung.at</a></li>
+          <li><b>openaid.se</b> (Swedish Sida) and <b>UK DevTracker</b>, foreign implementers with Balkan projects. <a href="https://openaid.se/en/" target="_blank">openaid.se</a>, <a href="https://devtracker.fcdo.gov.uk/" target="_blank">devtracker.fcdo.gov.uk</a></li>
+          <li><b>Erasmus+</b> and <b>Creative Europe</b> project-results databases (youth and cultural NGOs that run exchanges and events). <a href="https://erasmus-plus.ec.europa.eu/projects" target="_blank">erasmus-plus projects</a></li>
+        </ul>
+        <p style="color:var(--soft);font-size:13.5px">How to use the result: email the project's communications lead, name the specific project and its funder, and offer local photo coverage for the next workshop, launch, or field visit. Donor-funded projects almost always have a visibility budget.</p>
       </div>
     </details>
 
@@ -358,11 +391,85 @@ const DATA = [
 {n:"RYCO (Regional Youth Cooperation Office)",g:"Regional",city:"Tirana / region",cat:"International",t:"pitch",why:"Youth exchanges and summits across 6 countries, posts procurements and brand campaigns.",u:"https://www.rycowb.org/",k:"office@rycowb.org"},
 {n:"Belgrade Photo Month (regional hub)",g:"Regional",city:"Belgrade",cat:"Culture",t:"pitch",why:"The primary photographer network in the region, New Talents open call and portfolio reviews build regional contacts.",u:"https://www.belgradephotomonth.org/",k:"info@belgradephotomonth.org"},
 {n:"Open Society Foundations Western Balkans",g:"Regional",city:"Skopje / region",cat:"NGO",t:"pitch",why:"Active in 5 capitals, funds initiatives whose grantees and events need documentation. Ask to join their supplier list.",u:"https://osfwb.org/",k:"info@osfwb.org"},
-{n:"Photographers for a Cause",g:"Regional",city:"Remote",cat:"NGO",t:"pitch",why:"Matches humanitarian photographers with NGO projects on paid and pro-bono terms. Submit a portfolio to be listed.",u:"https://www.photographersforacause.org/",k:"info@photographersforacause.org"}
+{n:"Photographers for a Cause",g:"Regional",city:"Remote",cat:"NGO",t:"pitch",why:"Matches humanitarian photographers with NGO projects on paid and pro-bono terms. Submit a portfolio to be listed.",u:"https://www.photographersforacause.org/",k:"info@photographersforacause.org"},
+
+/* ===== DONOR-FUNDED NGOs and FOREIGN IMPLEMENTERS (added 17 June 2026): smaller orgs that won a grant and now run events on the ground ===== */
+/* North Macedonia */
+{n:"IDSCS, Institute for Democracy Societas Civilis",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas (Swiss SDC), KAS, Visegrad",why:"Policy think-tank: anti-corruption forums, parliamentary-monitoring roundtables, youth workshops, magazine launches.",u:"https://idscs.org.mk/en/",k:"contact@idscs.org.mk"},
+{n:"CRPM, Center for Research and Policy Making",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), Swiss SDC",why:"Runs the School of Public Policy (residential seminars in Ohrid), policy roundtables and EU-integration conferences.",u:"https://crpm.org.mk",k:"crpm.org.mk/contact"},
+{n:"Metamorphosis Foundation",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"EU and international",why:"Digital-rights and media-literacy NGO: conferences, AI-literacy trainings, grant-programme launches.",u:"https://metamorphosis.org.mk/en/",k:"info@metamorphosis.org.mk"},
+{n:"ARNO, Association for Development of New Options",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Rockefeller Brothers Fund, EU, UNFPA, Erasmus+",why:"Social-innovation NGO: Green Ideas competition, Social Enterprise Fair, incubator closing events, city roadshows.",u:"https://arno.org.mk",k:"contact@arno.org.mk"},
+{n:"HERA, Health Education and Research Association",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas (SDC), Sigrid Rausing, IPPF",why:"Sexual and reproductive health NGO: policy conferences and GBV events attended by ministries and UN agencies.",u:"https://hera.org.mk",k:"hera@hera.org.mk"},
+{n:"HOPS, Healthy Options Project Skopje",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway)",why:"Harm-reduction NGO, one of the busiest event producers: drug-policy conferences, trainings, plan launches.",u:"https://hops.org.mk",k:"hops@hops.org.mk"},
+{n:"Helsinki Committee for Human Rights (MHC)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas, OSF, CoE, EU, Norwegian Helsinki Cttee",why:"Human-rights NGO: conferences, panels, the LGBTI Support Center, public actions.",u:"https://mhc.org.mk/en/",k:"helkom@mhc.org.mk"},
+{n:"Akcija Zdruzenska",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Kvinna till Kvinna (Sida), SDC, UN Women, EU",why:"Gender-equality NGO running women's-rights forums and budgeting workshops across 21 municipalities.",u:"https://zdruzenska.org.mk",k:"akcija.zdruzenska@gmail.com"},
+{n:"Youth Educational Forum (YEF)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"EU, UNFPA",why:"Large youth NGO: workshops in 13+ municipalities, the national debate programme, regional youth-leadership mobility.",u:"https://mof.mk/en/",k:"info@mof.org.mk"},
+{n:"First Children's Embassy, Megjashi",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas",why:"Child-rights NGO: the international Peace Education Conference (November), advocacy and documentary-film events.",u:"http://www.childrensembassy.org.mk",k:"childrensembassy.org.mk"},
+{n:"Konekt Association",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas, EU, GIZ",why:"Philanthropy NGO: the annual Giving Circle, Days of Donations, charity auctions, CSO-business conferences.",u:"https://konekt.org.mk",k:"konekt.org.mk"},
+{n:"MYLA, Macedonian Young Lawyers Association",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas",why:"Legal-aid and human-rights NGO: litigation events, legal-education trainings, public presentations.",u:"https://myla.org.mk/en/",k:"contact@myla.org.mk"},
+{n:"Transparency International Macedonia",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), EU",why:"Anti-corruption NGO: public launches, the annual Corruption Barometer release, meetings with institutions.",u:"https://transparency.mk/en/",k:"transparency.mk"},
+{n:"Ekvalis, Association for Educational Development",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway)",why:"Youth, gender and media-literacy NGO reaching 2,000+ youth a year: educational events and network launches.",u:"https://ekvalis.org.mk",k:"ekvalis.org.mk"},
+{n:"Glasen Tekstilec",g:"North Macedonia",city:"Shtip",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas, SMART Balkans, EED",why:"Workers'-rights NGO: the annual Tekstilijada event, labour conferences and advocacy actions.",u:"https://glasentekstilec.mk/en/home-en/",k:"glasentekstilec.mk"},
+{n:"Center for Civil Communications (CCC)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"USAID legacy, SDC, Netherlands, EU, NED",why:"Transparency NGO: Active Transparency Index launches, Open Government week, procurement-monitoring seminars.",u:"https://ccc.org.mk/index.php?lang=en",k:"ccc.org.mk"},
+{n:"NGO Infocentar",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Olof Palme Center (Sida), Civica Mobilitas, EU",why:"Civic NGO running 50+ public events, youth-fund grant events and civic-dialogue forums across 15 municipalities.",u:"https://nvoinfocentar.mk",k:"nvoinfocentar.mk/en/contact/"},
+{n:"Eko-svest",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Swiss SDC, EU, CEE Bankwatch",why:"Environmental NGO: seminars, community education events, clean-air and energy advocacy.",u:"https://ekosvest.com.mk",k:"info@ekosvest.com.mk"},
+{n:"National Roma Centrum",g:"North Macedonia",city:"Kumanovo",cat:"NGO",t:"pitch",funded:true,donor:"EU, Erasmus+, municipal",why:"Roma-rights NGO: information campaigns, GBV-prevention workshops, legal-assistance events.",u:"http://www.nationalromacentrum.org/en/",k:"info@nationalromacentrum.org"},
+{n:"Luludi, Roma Women and Youth Association",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Civica Mobilitas",why:"Roma women and youth NGO: national network events, GBV advocacy, youth-employment events.",u:"https://luludi.mk",k:"razmluludi@gmail.com"},
+{n:"Center for Intercultural Dialogue (CID)",g:"North Macedonia",city:"Kumanovo",cat:"NGO",t:"pitch",funded:true,donor:"Erasmus+, Pro Peace (forumZFD)",why:"Youth NGO running the MultiKulti Youth Center: trainings, hackathons, intercultural workshops.",u:"https://cid.mk",k:"cid.mk"},
+{n:"Tiiiit! Inc.",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Kvinna till Kvinna, FRIDA, Sigrid Rausing, Min. of Culture",why:"Feminist arts NGO behind the Firstborn Girl festival and a co-organizer of Skopje Pride Weekend.",u:"https://tiiiitinc.com",k:"tiiiitinc.com"},
+{n:"Coalition MARGINS",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"International LGBTQ+ foundations",why:"LGBTQ+ rights NGO organizing Skopje Pride Weekend (queer arts and culture at the MoCA) and advocacy events.",u:"https://coalition.org.mk",k:"coalition.org.mk"},
+{n:"ADI, Association for Democratic Initiatives",g:"North Macedonia",city:"Gostivar",cat:"NGO",t:"pitch",funded:true,donor:"EU (Civic Resource Centre), Civica Mobilitas",why:"Civic NGO: civil-society and food-producer fairs in Tearce and Gostivar, crafts showcases, civic-engagement events.",u:"https://adimacedonia.org",k:"info@adimacedonia.org"},
+{n:"Civica Mobilitas (programme hub)",g:"North Macedonia",city:"Skopje",cat:"NGO",t:"pitch",funded:true,donor:"Swiss SDC",why:"Swiss civil-society programme that re-grants ~18 local NGOs at a time, each running its own public events. Its grantee directory is a live lead list.",u:"https://civicamobilitas.mk/en/",k:"helpdesk@civicamobilitas.mk"},
+/* Serbia */
+{n:"European Movement in Serbia (EMinS)",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",funded:true,donor:"EU",why:"EU-integration NGO: the annual Belgrade Security Forum, public debates, youth rule-of-law workshops across cities.",u:"https://emins.org",k:"emins.org/en/contact-us/"},
+{n:"Belgrade Centre for Security Policy (BCSP)",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",funded:true,donor:"Rockefeller Brothers Fund",why:"Security think-tank: the annual Belgrade Security Conference (Sava Center, 500+), panels and research launches.",u:"https://bezbednost.org/en/",k:"bezbednost.org/en/contact/"},
+{n:"Youth Initiative for Human Rights Serbia",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",funded:true,donor:"EU, forumZFD (Germany)",why:"Youth human-rights NGO: the Miredita Dobar Dan festival (Kosovo-Serbia), youth summits, dialogue workshops.",u:"https://yihr.rs",k:"office.rs@yihr.org"},
+{n:"KROKODIL",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",funded:true,donor:"Sigrid Rausing Trust, Creative Europe",why:"Literary NGO: the annual KROKODIL festival (Museum of Yugoslavia, July), Belgrade Debate on Europe, residencies.",u:"https://www.krokodil.rs/eng",k:"krokodil.rs/eng/contact-2/"},
+{n:"CRTA, Center for Research, Transparency and Accountability",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",funded:true,donor:"Sigrid Rausing Trust, EU",why:"Democracy watchdog: election-observation launches, fact-checking press events, community programmes.",u:"https://crta.rs/en/",k:"crta.rs/en/contact/"},
+{n:"Novi Sad School of Journalism",g:"Serbia",city:"Novi Sad",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), EU",why:"Media-development NGO: journalism trainings, media-literacy academies, a young-journalist award.",u:"https://novinarska-skola.org.rs",k:"office@novinarska-skola.org.rs"},
+{n:"CK13 Youth and Cultural Center",g:"Serbia",city:"Novi Sad",cat:"Culture",t:"pitch",funded:true,donor:"Schuler Helfen Leben (Germany), NED, OSF",why:"Youth cultural center: concerts, film festivals, intercultural events and workshops.",u:"https://ck13.space",k:"ck13.space"},
+/* Kosovo */
+{n:"Kosovar Civil Society Foundation (KCSF)",g:"Kosovo",city:"Pristina",cat:"NGO",t:"pitch",funded:true,donor:"EU Civil Society Facility",why:"Re-granting foundation: grant launches, CSO workshops, advocacy training, volunteerism-grant events.",u:"https://kcsfoundation.org/en/",k:"office@kcsfoundation.org"},
+{n:"Group for Legal and Political Studies (GLPS)",g:"Kosovo",city:"Pristina",cat:"NGO",t:"pitch",funded:true,donor:"EU Office Kosovo",why:"Think-tank running the ACT NOW project: reform roundtables, policy launches, multi-stakeholder forums.",u:"https://legalpoliticalstudies.org",k:"legalpoliticalstudies.org/contact"},
+{n:"Kosovo Women's Network (KWN)",g:"Kosovo",city:"Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Sigrid Rausing, ADA (Austria), Sida",why:"Network of 150+ orgs: GBV conferences, March 8 marches, 16 Days of Activism, member convenings.",u:"https://womensnetwork.org",k:"womensnetwork.org/contact/"},
+{n:"Advocacy Training and Resource Center (ATRC)",g:"Kosovo",city:"Pristina",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), EU",why:"Capacity-builder and grant-maker: CSO trainings in 10 municipalities, advocacy workshops, grant events.",u:"https://advocacy-center.org",k:"info@advocacy-center.org"},
+{n:"DokuFest",g:"Kosovo",city:"Prizren",cat:"Culture",t:"pitch",funded:true,donor:"EU, cultural funders",why:"Major international documentary film festival (August): DokuPhoto exhibition, masterclasses, DOKU.TECH.",u:"https://dokufest.com",k:"dokufest.com"},
+{n:"CARE Balkans, Green Horizons",g:"Kosovo",city:"Prizren / Peja",cat:"NGO",t:"pitch",funded:true,donor:"EU (CARE Intl, Austrian/Swiss roots)",why:"Foreign implementer: youth green-transition events in 10 schools, sub-grant launches, community demonstrations (through 2027).",u:"https://care-balkan.org",k:"care-balkan.org"},
+{n:"People in Need Kosovo",g:"Kosovo",city:"Pristina",cat:"NGO",t:"pitch",funded:true,donor:"EU (People in Need, Czech)",why:"Foreign implementer: circular-economy fairs, CSO trainings, teacher training and community launches across municipalities.",u:"https://www.peopleinneed.net",k:"peopleinneed.net"},
+{n:"Swisscontact Kosovo",g:"Kosovo",city:"Pristina",cat:"International",t:"pitch",funded:true,donor:"Swiss SDC, Sida",why:"Foreign implementer (MSJ and FEGO projects): VET workshops, MoU signings, study visits, rural-tourism fairs.",u:"https://www.swisscontact.org/en/countries/kosovo",k:"info@swisscontact.org"},
+/* Bosnia */
+{n:"TPO Foundation",g:"Bosnia",city:"Sarajevo",cat:"NGO",t:"pitch",funded:true,donor:"UK FCDO, EU (UNIGEM)",why:"Peacebuilding and education NGO: conferences, the University of Tuzla Winter School, teacher workshops across cantons.",u:"https://tpo.ba",k:"tpo@tpofond.org"},
+{n:"Helsinki Citizens Assembly Banja Luka",g:"Bosnia",city:"Banja Luka",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), Human Rights House",why:"Human-rights NGO: advocacy events, women and youth political-participation workshops, network convenings.",u:"https://hcabl.org",k:"hcabl.org"},
+{n:"UG Nesto Vise",g:"Bosnia",city:"Banja Luka",cat:"NGO",t:"pitch",funded:true,donor:"Erasmus+, EU",why:"Youth NGO: transnational youth-worker seminars, podcast workshops, youth conferences, cultural-heritage events.",u:"https://nestovise.org",k:"nestovise.org"},
+/* Albania */
+{n:"IDM, Institute for Democracy and Mediation",g:"Albania",city:"Tirana",cat:"NGO",t:"pitch",funded:true,donor:"SMART Balkans (Norway), EU, FES",why:"Policy NGO: Parliament-to-Citizen forums (Hotel Rogner), regional-cooperation conferences, capacity workshops.",u:"https://idmalbania.org",k:"shroni@idmalbania.org"},
+/* Montenegro */
+{n:"NGO Juventas",g:"Montenegro",city:"Podgorica",cat:"NGO",t:"pitch",funded:true,donor:"EU/UNDP Confidence Building, SMART Balkans",why:"Youth NGO: transitional-justice theatre, youth camps, panels, crime-prevention workshops.",u:"https://juventas.me",k:"juventas.me"},
+{n:"CEDEM, Center for Democracy and Human Rights",g:"Montenegro",city:"Podgorica",cat:"NGO",t:"pitch",funded:true,donor:"EU Civil Society Facility, Council of Europe",why:"Think-tank: hate-speech workshops, roundtables with officials, research-publication launches.",u:"https://cedem.me",k:"cedem.me/en/"},
+/* German foundations and cooperation (recurring-event hirers, they book local photographers) */
+{n:"Friedrich-Ebert-Stiftung (FES) Skopje",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"German foundation, monthly events: roundtables, forums, the regional feminist festival, the Socio-Ecological Forum. Books local photographers.",u:"https://skopje.fes.de",k:"skopje@fes.de"},
+{n:"Konrad-Adenauer-Stiftung (KAS) Skopje",g:"North Macedonia",city:"Skopje",cat:"International",t:"pitch",why:"German foundation: multi-day political academies, panel debates, media-regulation workshops, mayoral trainings.",u:"https://www.kas.de/en/web/nordmazedonien",k:"Skopje@kas.de"},
+{n:"Friedrich-Ebert-Stiftung (FES) Belgrade",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"German foundation: conferences, panel discussions, multi-module training weekends, launch events.",u:"https://serbia.fes.de",k:"info@fes-serbia.org"},
+{n:"Friedrich Naumann Foundation (FNF) Belgrade",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"German foundation (regional hub): the BAZA women's leadership academy, networking events, panel debates, screenings.",u:"https://www.freiheit.org/western-balkans",k:"andjelka.milic@freiheit.org"},
+{n:"Friedrich-Ebert-Stiftung (FES) Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"German foundation (Sarajevo and Banja Luka): training modules, public conferences, seminars, panels.",u:"https://soe.fes.de",k:"bih@fes.de"},
+{n:"Konrad-Adenauer-Stiftung (KAS) Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"German foundation: rule-of-law and inter-religious dialogue roundtables, EU-integration panels, workshops.",u:"https://www.kas.de/en/web/bosnien-herzegowina",k:"sarajevo@kas.de"},
+{n:"Heinrich-Boell-Stiftung Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"International",t:"pitch",why:"German foundation (covers BiH and North Macedonia): commemorations, gender and green-transition debates, workshops.",u:"https://ba.boell.org",k:"info@ba.boell.org"},
+{n:"Friedrich-Ebert-Stiftung (FES) Pristina",g:"Kosovo",city:"Pristina",cat:"International",t:"pitch",why:"German foundation: the Future of Economy programme (multi-day, September), election debates, report launches, trainings.",u:"https://kosovo.fes.de",k:"kosovo@fes.de"},
+{n:"Friedrich-Ebert-Stiftung (FES) Tirana",g:"Albania",city:"Tirana",cat:"International",t:"pitch",why:"German foundation: workshops, public forums and civil-society gatherings on economy and EU integration.",u:"https://tirana.fes.de",k:"info.tirana@fes.de"},
+{n:"Pro Peace (forumZFD), Western Balkans",g:"Regional",city:"Skopje/Belgrade/Sarajevo/Pristina",cat:"NGO",t:"pitch",funded:true,donor:"German BMZ / Federal Foreign Office",why:"German peace NGO with four country offices: dealing-with-the-past trainings, closing conferences, memorial events. One pitch covers the network.",u:"https://www.propeace.de/en/western-balkans",k:"info@propeace.de"},
+/* Regional foreign implementers and funders */
+{n:"Kvinna till Kvinna",g:"Regional",city:"Skopje/Belgrade/Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Sida (Sweden)",why:"Swedish women's-rights funder working through local partners across the region: forums, commemorations, regional networking events.",u:"https://kvinnatillkvinna.org",k:"info@kvinnatillkvinna.se"},
+{n:"Helvetas (Eastern Europe office)",g:"Regional",city:"Belgrade",cat:"NGO",t:"pitch",funded:true,donor:"Swiss SDC, Sida",why:"Swiss implementer covering North Macedonia and Serbia: civil-society and vocational-training events.",u:"https://www.helvetas.org/en/eastern-europe",k:"easterneurope@helvetas.org"},
+{n:"Caritas Austria (regional projects)",g:"Regional",city:"Vienna / Balkans",cat:"NGO",t:"pitch",funded:true,donor:"Austrian Development Agency (ADA)",why:"Austrian implementer (the foreign-NGO pattern): career-counseling, vocational-training and internship events across the Balkans.",u:"https://www.caritas-austria.at",k:"birgit.ertl@caritas-austria.at"},
+{n:"WUS Austria",g:"Regional",city:"Graz / Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Austrian Development Agency (ADA), EU",why:"Austrian implementer in higher education (Kosovo, Bosnia, Albania, Montenegro): scholarship ceremonies, curriculum launches, stakeholder workshops.",u:"https://www.wus-austria.org",k:"office@wus-austria.org"},
+{n:"BIRN, Balkan Investigative Reporting Network",g:"Regional",city:"Pristina/Tirana/Sarajevo",cat:"NGO",t:"pitch",funded:true,donor:"UK FCDO, EU",why:"Regional media NGO: media-integrity conferences, investigative-journalism award ceremonies, report launches.",u:"https://birn.eu.com",k:"birn.eu.com/contact/"},
+{n:"WB6 MEDIA / SustanMedia",g:"Regional",city:"All capitals",cat:"NGO",t:"pitch",funded:true,donor:"EU + German BMZ (GIZ, DW Akademie)",why:"Regional media-freedom programme: capacity workshops and Media Resource Center events in each capital.",u:"https://www.wb6media.eu/en/about-us/",k:"wb6media.eu"},
+{n:"European Fund for the Balkans",g:"Regional",city:"Vienna / Belgrade",cat:"NGO",t:"pitch",donor:"ERSTE (Austria), Bosch (Germany), King Baudouin",why:"Regional re-granter: civil-society forums, reconciliation events, the Re:boot Camp for Western Balkans leaders.",u:"https://balkanfund.org",k:"office@erstestiftung.org"},
+{n:"OBCT, Osservatorio Balcani Caucaso",g:"Regional",city:"Belgrade / Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Italian MAECI, EU",why:"Italian implementer: media-freedom forums, journalism workshops, stakeholder meetings in Belgrade and Pristina.",u:"https://www.balcanicaucaso.org/en/",k:"balcanicaucaso.org"}
 ];
 
 const CATS = ["NGO","International","Culture","Corporate","Food","Kids"];
-const state = {mode:"all", geo:"all", cat:"all", q:""};
+const state = {mode:"all", geo:"all", cat:"all", fund:"all", q:""};
 
 // build country pills from data
 const geos = [...new Set(DATA.map(d=>d.g))].sort((a,b)=> a==="Regional"?1 : b==="Regional"?-1 : a.localeCompare(b));
@@ -377,6 +484,7 @@ function matches(d){
   if(state.mode!=="all" && d.t!==state.mode) return false;
   if(state.geo!=="all" && d.g!==state.geo) return false;
   if(state.cat!=="all" && d.cat!==state.cat) return false;
+  if(state.fund==="yes" && !d.funded) return false;
   if(state.q){
     const hay=(d.n+" "+d.city+" "+d.g+" "+d.cat+" "+d.why+" "+(d.k||"")).toLowerCase();
     if(!hay.includes(state.q)) return false;
@@ -406,11 +514,13 @@ function render(){
       <div class="tags">
         <span class="tag geo">${d.g}${d.city?", "+d.city:""}</span>
         <span class="tag ${d.cat}">${d.cat}</span>
+        ${d.funded?'<span class="tag funded">donor-funded</span>':''}
         ${d.t==='live'?'<span class="tag livebadge">APPLY NOW</span>':''}
       </div>
       <h3>${d.n}</h3>
       ${d.dl?`<div class="dl">${d.dl}</div>`:''}
       <div class="why">${d.why}</div>
+      ${d.donor?`<div class="donor">Funder: <b>${d.donor}</b></div>`:''}
       <div class="links">${linkOut(d.u)}${contactOut(d.k)}</div>
     </div>`;
   }).join("");
@@ -431,6 +541,7 @@ document.addEventListener("click",e=>{
   if(p.classList.contains("mode")){document.querySelectorAll(".pill.mode").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.mode=p.dataset.mode;}
   else if(p.classList.contains("geo")){document.querySelectorAll(".pill.geo").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.geo=p.dataset.geo;}
   else if(p.classList.contains("cat")){document.querySelectorAll(".pill.cat").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.cat=p.dataset.v;}
+  else if(p.classList.contains("fund")){document.querySelectorAll(".pill.fund").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.fund=p.dataset.fund;}
   render();
 });
 document.getElementById("q").addEventListener("input",e=>{state.q=e.target.value.trim().toLowerCase();render();});
