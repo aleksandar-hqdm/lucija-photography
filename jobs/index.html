@@ -35,12 +35,7 @@
   .pill{border:1px solid var(--line);background:var(--panel);color:var(--soft);padding:5px 11px;border-radius:999px;font-size:13px;cursor:pointer;user-select:none;transition:.12s}
   .pill:hover{border-color:#3a4150;color:var(--ink)}
   .pill.on{background:var(--ink);color:#0f1115;border-color:var(--ink);font-weight:600}
-  .pill.cat.on[data-v="NGO"]{background:var(--ngo);border-color:var(--ngo);color:#06150e}
-  .pill.cat.on[data-v="International"]{background:var(--intl);border-color:var(--intl);color:#04101f}
-  .pill.cat.on[data-v="Culture"]{background:var(--culture);border-color:var(--culture);color:#120422}
-  .pill.cat.on[data-v="Corporate"]{background:var(--corp);border-color:var(--corp);color:#0b0f16}
-  .pill.cat.on[data-v="Food"]{background:var(--food);border-color:var(--food);color:#1c1304}
-  .pill.cat.on[data-v="Kids"]{background:var(--kids);border-color:var(--kids);color:#1f0512}
+  .pill.cat.on{background:var(--cc,var(--ink));border-color:var(--cc,var(--ink));color:#0f1115;font-weight:600}
   #q{flex:1;min-width:160px;background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:7px 12px;border-radius:8px;font-size:13.5px}
   #q::placeholder{color:var(--faint)}
   .count{color:var(--faint);font-size:12.5px;margin-left:auto}
@@ -122,12 +117,6 @@
     <div class="row" id="catRow">
       <span class="lab">Client</span>
       <span class="pill cat on" data-v="all">All</span>
-      <span class="pill cat" data-v="NGO">NGO &amp; nonprofit</span>
-      <span class="pill cat" data-v="International">International</span>
-      <span class="pill cat" data-v="Culture">Culture &amp; festivals</span>
-      <span class="pill cat" data-v="Corporate">Corporate &amp; conf.</span>
-      <span class="pill cat" data-v="Food">Food &amp; drink</span>
-      <span class="pill cat" data-v="Kids">Kids &amp; family</span>
     </div>
     <div class="row" id="fundRow">
       <span class="lab">Funding</span>
@@ -526,10 +515,262 @@ const DATA = [
 {n:"AGROKOS Agribusiness and Food Fair",g:"Kosovo",city:"Pristina",cat:"Food",t:"pitch",why:"25th edition (late May), the leading agribusiness, food and beverage trade fair in Kosovo.",u:"https://www.ceokos.com/agrokos/en/for-exhibitor/",k:"ceokos.com"},
 {n:"Wine and Bleak Festival",g:"Montenegro",city:"Virpazar",cat:"Food",t:"pitch",why:"Lake Skadar wine and lake-fish festival (late Feb to early Mar), a local wine competition plus cultural programme.",u:"https://www.montenegro.travel/en/explore-montenegro/events-in-montenegro/568-wine-and-bleak-festival",k:"bar.travel"},
 {n:"Craft Fest Montenegro",g:"Montenegro",city:"Podgorica",cat:"Food",t:"pitch",why:"Podgorica craft-beer festival (mid-June) on Independence Square, 10+ breweries, live music.",u:"https://podgorica.travel/en/",k:"podgorica.travel"},
-{n:"Montenegro Beer Fest",g:"Montenegro",city:"Cetinje",cat:"Food",t:"pitch",why:"Beer and music festival (late July to early Aug) in Cetinje, regional craft beer and live acts.",u:"https://www.facebook.com/montenegrobeerfest",k:"facebook.com/montenegrobeerfest"}
+{n:"Montenegro Beer Fest",g:"Montenegro",city:"Cetinje",cat:"Food",t:"pitch",why:"Beer and music festival (late July to early Aug) in Cetinje, regional craft beer and live acts.",u:"https://www.facebook.com/montenegrobeerfest",k:"facebook.com/montenegrobeerfest"},
+
+/* ===== EVERY-LAYER SWEEP (added 17 June 2026) ===== */
+/* Sports */
+{n:"FK Vardar Skopje (football)",g:"North Macedonia",city:"Skopje",cat:"Sports",t:"pitch",why:"Top Macedonian football club at the National Arena, match-day media passes and contracted shooters.",u:"https://fkvardar.com",k:"contact@fcvardar.com.mk"},
+{n:"FC Shkupi 1927 (football)",g:"North Macedonia",city:"Skopje",cat:"Sports",t:"pitch",why:"Premier League club with UEFA rounds, issues press accreditation by email.",u:"https://fcshkupi.com",k:"media@fcshkupi.com"},
+{n:"RK Alkaloid (handball)",g:"North Macedonia",city:"Skopje",cat:"Sports",t:"pitch",why:"EHF European Cup winners, formal per-match photo accreditation.",u:"https://rkalkaloid.mk",k:"media@rkalkaloid.mk"},
+{n:"RK Vardar 1961 (handball)",g:"North Macedonia",city:"Skopje",cat:"Sports",t:"pitch",why:"Champions League handball club, accredits press, seasonal club photographer.",u:"https://rkvardar.com.mk",k:"contact@rkvardar1961.com"},
+{n:"Wizz Air Skopje Marathon",g:"North Macedonia",city:"Skopje",cat:"Sports",t:"pitch",why:"Largest mass running event in the country (October), contracts an official photographer.",u:"https://skopskimaraton.com.mk",k:"info@skopskimaraton.com.mk"},
+{n:"Ohrid Ultra-Trail",g:"North Macedonia",city:"Ohrid",cat:"Sports",t:"pitch",why:"Trail race in Galicica National Park (late May), works with event photographers across distances.",u:"https://ohridultratrail.com",k:"race@ohridultratrail.com"},
+{n:"PAOK FC (football)",g:"Greece",city:"Thessaloniki",cat:"Sports",t:"pitch",why:"Big Super League club, formal seasonal media accreditation, pitch access via Gate 2.",u:"https://paokfc.gr",k:"press@paokfc.gr"},
+{n:"Olympiacos FC (football)",g:"Greece",city:"Piraeus",cat:"Sports",t:"pitch",why:"Most successful Greek club, match-day photo accreditation via press office.",u:"https://olympiacos.org",k:"press@olympiacos.org"},
+{n:"Panathinaikos FC (football)",g:"Greece",city:"Athens",cat:"Sports",t:"pitch",why:"Athens Big Three club, seasonal and per-match photo accreditation.",u:"https://pao.gr",k:"pressoffice@pao.gr"},
+{n:"AEK Athens FC (football)",g:"Greece",city:"Athens",cat:"Sports",t:"pitch",why:"Major Athens club at the OPAP Arena, press-office accreditation.",u:"https://aekfc.gr",k:"pressoffice@aekfc.gr"},
+{n:"Athens Authentic Marathon",g:"Greece",city:"Athens",cat:"Sports",t:"pitch",why:"The original marathon (November), one of Europe's most photographed races, run by SEGAS.",u:"https://athensauthenticmarathon.gr",k:"press@segas.gr"},
+{n:"FK Crvena Zvezda, Red Star (football)",g:"Serbia",city:"Belgrade",cat:"Sports",t:"pitch",why:"Most famous Serbian club, stadium media center, per-match accreditation.",u:"https://crvenazvezdafk.com",k:"crvenazvezdafk.com (form)"},
+{n:"FK Partizan (football)",g:"Serbia",city:"Belgrade",cat:"Sports",t:"pitch",why:"Historic Belgrade club, dedicated accreditation email.",u:"https://partizan.rs",k:"accreditation@partizan.rs"},
+{n:"Belgrade Marathon",g:"Serbia",city:"Belgrade",cat:"Sports",t:"pitch",why:"Largest sporting event in Serbia (April), contracts official race photographers.",u:"https://bgdmarathon.org",k:"office@bgdmarathon.org"},
+{n:"HNK Hajduk Split (football)",g:"Croatia",city:"Split",cat:"Sports",t:"pitch",why:"One of Croatia's two biggest clubs, seasonal and single-match accreditation.",u:"https://hajduk.hr",k:"press@hajduk.hr"},
+{n:"GNK Dinamo Zagreb (football)",g:"Croatia",city:"Zagreb",cat:"Sports",t:"pitch",why:"Croatia's most titled club, Champions League regular, online accreditation portal.",u:"https://gnkdinamo.hr",k:"akreditacije.gnkdinamo.hr"},
+{n:"Zagreb Marathon",g:"Croatia",city:"Zagreb",cat:"Sports",t:"pitch",why:"City-centre marathon (October), 2026 World Masters venue, contracts official photographers.",u:"https://zagreb-marathon.com",k:"zagreb-marathon.com (form)"},
+{n:"NLB Ljubljana Marathon",g:"Slovenia",city:"Ljubljana",cat:"Sports",t:"pitch",why:"Slovenia's biggest running event (October), dedicated media section.",u:"https://ljubljanskimaraton.si",k:"info@ljubljanskimaraton.si"},
+{n:"Tour of Slovenia (cycling)",g:"Slovenia",city:"nationwide",cat:"Sports",t:"pitch",why:"UCI ProSeries stage race (June), internationally broadcast, contracts race photographers.",u:"https://tourofslovenia.si",k:"office@tourofslovenia.si"},
+{n:"HSK Zrinjski Mostar (football)",g:"Bosnia",city:"Mostar",cat:"Sports",t:"pitch",why:"Herzegovina's biggest club, four accreditation categories incl. Photo.",u:"https://hskzrinjski.ba",k:"press@hskzrinjski.ba"},
+{n:"Sarajevo Half Marathon",g:"Bosnia",city:"Sarajevo",cat:"Sports",t:"pitch",why:"City-centre half marathon (September), contracts official race photographers.",u:"https://sarajevomarathon.ba",k:"info@sarajevomarathon.ba"},
+{n:"Wizz Air Sofia Marathon",g:"Bulgaria",city:"Sofia",cat:"Sports",t:"pitch",why:"Bulgaria's flagship road race (October), dedicated PR and press contacts.",u:"https://sofiamarathon.bg",k:"pr@sofiamarathon.bg"},
+{n:"PFC Ludogorets (football)",g:"Bulgaria",city:"Razgrad",cat:"Sports",t:"pitch",why:"Dominant Bulgarian club, Champions League qualifiers, active press room.",u:"https://ludogorets.com",k:"ludogorets.com/en/press-office/"},
+{n:"Prishtina Trails",g:"Kosovo",city:"Pristina",cat:"Sports",t:"pitch",why:"Kosovo's largest trail race (May) in Germia Park, works with photographers across distances.",u:"https://prishtinatrails.com",k:"prixtrailers@gmail.com"},
+{n:"Podgorica Millennium Run",g:"Montenegro",city:"Podgorica",cat:"Sports",t:"pitch",why:"Montenegro's main road race (November), credits named contracted photographers.",u:"https://podgorica.run",k:"podgorica.run/kontakt"},
+{n:"Tirana Marathon",g:"Albania",city:"Tirana",cat:"Sports",t:"pitch",why:"Albania's biggest mass-participation race (October) by the Municipality, heavy promo use.",u:"https://tiranamarathon.com",k:"tiranamarathon.com (form)"},
+/* Film and TV production (unit stills / BTS) */
+{n:"Balkanic Media",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"Co-production house for international TV drama (The Outpost, Seal Team), hires unit stills crew.",u:"https://balkanicmedia.com",k:"je@balkanicmedia.com"},
+{n:"Contrast Studios",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"TV and film producer, long-running series, continuous unit-stills work.",u:"https://contraststudios.rs",k:"office@contraststudios.rs"},
+{n:"Firefly Productions",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"TV drama specialist, studio under construction, hires stills per production.",u:"https://www.firefly.rs",k:"office@firefly.rs"},
+{n:"Rooster Production",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"Award-winning ad production house (IKEA, Adidas), commissions EPK and BTS stills.",u:"https://roosterproduction.rs",k:"ana@roosterproduction.rs"},
+{n:"Soulful Films",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"Production-service company assembling local crew incl. stills photographers.",u:"https://www.soulfulfilms.rs",k:"info@soulfulfilms.rs"},
+{n:"Film Center Serbia",g:"Serbia",city:"Belgrade",cat:"Film/TV",t:"pitch",why:"State film fund, a tracker for which productions are shooting and who to approach.",u:"https://www.fcs.rs",k:"fcs@fcs.rs"},
+{n:"Propeler Film",g:"Croatia",city:"Zagreb",cat:"Film/TV",t:"pitch",why:"Active feature and documentary producer, hires stills/BTS per production.",u:"https://www.propelerfilm.com",k:"info@propelerfilm.com"},
+{n:"Kinorama",g:"Croatia",city:"Zagreb",cat:"Film/TV",t:"pitch",why:"35+ feature films, lean staff so crew incl. unit stills is brought in per project.",u:"https://www.kinorama.hr",k:"info@kinorama.hr"},
+{n:"BAAM Production House",g:"Croatia",city:"Zagreb / Dubrovnik",cat:"Film/TV",t:"pitch",why:"Stills and film production-service company across Croatia and neighbours.",u:"https://baamproductionhouse.com",k:"barbara@baamproductionhouse.com"},
+{n:"HAVC, Croatian Audiovisual Centre",g:"Croatia",city:"Zagreb",cat:"Film/TV",t:"pitch",why:"Administers the rebate, a tracker for funded productions to approach.",u:"https://havc.hr",k:"havc@havc.hr"},
+{n:"Nu Boyana Film Studios",g:"Bulgaria",city:"Sofia",cat:"Film/TV",t:"pitch",why:"Major studio complex hosting international action films, needs unit stills and EPK crews.",u:"https://nuboyana.com",k:"production@nuboyana.com"},
+{n:"Icon Films Sofia",g:"Bulgaria",city:"Sofia",cat:"Film/TV",t:"pitch",why:"Production-service house for global commercials, hires stills for EPK and set.",u:"https://www.iconfilms.bg",k:"info@iconfilms.bg"},
+{n:"Sofia Film Productions",g:"Bulgaria",city:"Sofia",cat:"Film/TV",t:"pitch",why:"International production-service company, engages freelance stills talent.",u:"https://www.sofiafilmproductions.com",k:"info@sofiafilmproductions.com"},
+{n:"Skopje Film Studio",g:"North Macedonia",city:"Skopje",cat:"Film/TV",t:"pitch",why:"Festival-credited producer offering full production services to foreign shoots.",u:"https://skopjefilmstudio.wixsite.com/officialsite",k:"office@sfs.mk"},
+{n:"Green Olive Films",g:"Greece",city:"Athens",cat:"Film/TV",t:"pitch",why:"Full-service producer (500+ credits) that lists still photography among services.",u:"https://www.greenolivefilms.com",k:"greenolivefilms.com/contact"},
+{n:"Central Athens Film Productions",g:"Greece",city:"Athens",cat:"Film/TV",t:"pitch",why:"Netflix/Warner long-format producer, crews of 100-250, dedicated unit stills standard.",u:"https://www.centralathens.gr",k:"tsilifonis@centralathens.gr"},
+{n:"Papadhimitri Film Production",g:"Albania",city:"Tirana",cat:"Film/TV",t:"pitch",why:"Production company with strong local-crew relationships, first call for an Albanian shoot.",u:"https://papadhimitriproduction.com",k:"papadhimitrifilmproduction@gmail.com"},
+{n:"KUBE Studios",g:"Albania",city:"Tirana",cat:"Film/TV",t:"pitch",why:"One-stop production and post house assembling freelance crew.",u:"https://www.kubestudios.com",k:"info@kubestudios.com"},
+{n:"ORBIS Production",g:"Slovenia",city:"Ljubljana",cat:"Film/TV",t:"pitch",why:"Full-service house that explicitly lists unit stills and BTS photography.",u:"https://orbispro.si",k:"info@orbispro.si"},
+{n:"Trixtr Production",g:"Slovenia",city:"Ljubljana",cat:"Film/TV",t:"pitch",why:"Production-service company across SI/HR/IT/AT, full crew packages.",u:"https://www.trixtr.com",k:"info@trixtr.com"},
+{n:"Kras Production",g:"Kosovo",city:"Pristina",cat:"Film/TV",t:"pitch",why:"Narrative film producer hiring stills and EPK crew project by project.",u:"https://www.krasproduction.com",k:"info@krasproduction.com"},
+/* Fashion */
+{n:"Belgrade Fashion Week",g:"Serbia",city:"Belgrade",cat:"Fashion",t:"pitch",why:"Oldest fashion week in Eastern Europe (April and October), media accreditation form.",u:"https://www.belgradefashionweek.com",k:"bgfashionweek@click.co.rs"},
+{n:"Serbia Fashion Week",g:"Serbia",city:"Novi Sad",cat:"Fashion",t:"pitch",why:"Twice-yearly Novi Sad fashion week, dedicated accreditation page.",u:"https://serbiafashionweek.com/en/",k:"accreditations.sfw@gmail.com"},
+{n:"Models Inc. (Elite Model Serbia)",g:"Serbia",city:"Belgrade",cat:"Fashion",t:"pitch",why:"Leading agency running Elite Model Look, hires editorial and backstage photographers.",u:"https://www.modelsinc.rs",k:"office@modelsinc.rs"},
+{n:"Fashion Weekend Skopje",g:"North Macedonia",city:"Skopje",cat:"Fashion",t:"pitch",why:"The only fashion week in North Macedonia (twice a year), media accreditation.",u:"https://fashionweekendskopje.mk",k:"pr@fashionweekendskopje.mk"},
+{n:"BH Fashion Week Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"Fashion",t:"pitch",why:"Run by ABC Models, the largest BiH agency, coordinates shows and photo recordings.",u:"https://www.bhfashionweeksarajevo.com",k:"info@bhfashionweeksarajevo.com"},
+{n:"Bipa Fashion.hr",g:"Croatia",city:"Zagreb",cat:"Fashion",t:"pitch",why:"The largest fashion platform in Croatia (March runway), press via BIPA comms.",u:"https://bipa.hr",k:"bipa@bipa.hr"},
+{n:"Ljubljana Fashion Week",g:"Slovenia",city:"Ljubljana",cat:"Fashion",t:"pitch",why:"Independent fashion week, 40+ shows under one roof (October), international press.",u:"https://ljfw.org",k:"@ljfw (Instagram)"},
+{n:"Athens Xclusive Designers Week (AXDW)",g:"Greece",city:"Athens",cat:"Fashion",t:"pitch",why:"Greece's main fashion week (twice a year), 25,000+ attendees, press register page.",u:"https://www.axdw.gr",k:"press@axdw.gr"},
+{n:"Eleven The Fashion Project",g:"Greece",city:"Athens",cat:"Fashion",t:"pitch",why:"Greek designer showcase at Zappeion (and Thessaloniki), press-kit access.",u:"https://eleventhefashionproject.gr",k:"info@eleven11.gr"},
+{n:"ModaSofia",g:"Bulgaria",city:"Sofia",cat:"Fashion",t:"pitch",why:"Bulgaria's main international fashion event (September), multi-venue catwalk.",u:"https://modasofia.bg",k:"editorial@viewsofia.com"},
+{n:"Ruse Fashion Week",g:"Bulgaria",city:"Ruse",cat:"Fashion",t:"pitch",why:"Runway event at the historic railway station (April), international designers.",u:"https://www.bgfashion.net",k:"silvia@bgfashion.net"},
+{n:"Albania Fashion Week",g:"Albania",city:"Tirana",cat:"Fashion",t:"pitch",why:"AIFF-run fashion week (April and October), apply for press access.",u:"https://albaniafashionweek.net",k:"info@albaniafashionweek.net"},
+{n:"Kosovo International Fashion Week (GFG)",g:"Kosovo",city:"Pristina",cat:"Fashion",t:"pitch",why:"Run by Gecjan Fashion Group, selects 25+ photographers each edition.",u:"https://www.gfgmodels.com",k:"@gfgmodels (Instagram)"},
+{n:"IFF Porto Montenegro",g:"Montenegro",city:"Tivat",cat:"Fashion",t:"pitch",why:"Luxury fashion festival at the superyacht marina (July), accreditation by request.",u:"https://www.iffportomontenegro.com",k:"iff@iffportomontenegro.com"},
+{n:"Fashion Week Montenegro",g:"Montenegro",city:"Podgorica",cat:"Fashion",t:"pitch",why:"National Fashion Chamber event (April), Podgorica and the coast.",u:"https://www.instagram.com/montenegrofashionweek",k:"@montenegrofashionweek (Instagram)"},
+/* Tourism boards and hospitality */
+{n:"Tourism Macedonia (national agency)",g:"North Macedonia",city:"Skopje",cat:"Tourism",t:"pitch",why:"National promotion body commissioning destination and campaign photography.",u:"https://tourismmacedonia.gov.mk",k:"tourismmacedonia.gov.mk (form)"},
+{n:"Ohrid Tourist Association",g:"North Macedonia",city:"Ohrid",cat:"Tourism",t:"pitch",why:"City tourism body for the UNESCO Ohrid region, commissions destination imagery.",u:"https://ohridtouristassociation.com",k:"biljanatourism@yahoo.com"},
+{n:"DMC Balkans Travel and Events",g:"North Macedonia",city:"Skopje",cat:"Tourism",t:"pitch",why:"Leading incoming operator, plans MICE events needing documentation.",u:"https://dmcbalkans.com",k:"info@dmcbalkans.com"},
+{n:"Greek National Tourism Org (Visit Greece)",g:"Greece",city:"Athens",cat:"Tourism",t:"pitch",why:"National marketing body with an image bank and press/fam trips.",u:"https://www.visitgreece.gr",k:"visitgreece.gr/media-kit"},
+{n:"This is Athens (ACVB)",g:"Greece",city:"Athens",cat:"Tourism",t:"pitch",why:"Official Athens visitor bureau, needs event and destination photography.",u:"https://www.thisisathens.org",k:"acvb@thisisathens.org"},
+{n:"Thessaloniki Tourism Organization",g:"Greece",city:"Thessaloniki",cat:"Tourism",t:"pitch",why:"Regional board producing guides and promotional imagery.",u:"https://thessaloniki.travel",k:"thessaloniki.travel (about)"},
+{n:"National Tourism Agency Albania (AKT)",g:"Albania",city:"Tirana",cat:"Tourism",t:"pitch",why:"Government agency commissioning destination and campaign content.",u:"https://akt.gov.al",k:"info@akt.gov.al"},
+{n:"DMO Albania",g:"Albania",city:"Tirana",cat:"Tourism",t:"pitch",why:"Non-profit behind Visit Tirana and the Tirana Photo Festival, commissions photographers.",u:"https://dmoalbania.al",k:"info@dmoalbania.al"},
+{n:"National Tourism Org of Serbia (TOS)",g:"Serbia",city:"Belgrade",cat:"Tourism",t:"pitch",why:"National body, fairs and press/fam trips needing imagery.",u:"https://www.serbia.travel/en/",k:"info@serbia.travel"},
+{n:"Tourist Organisation of Belgrade (TOB)",g:"Serbia",city:"Belgrade",cat:"Tourism",t:"pitch",why:"City board commissioning destination, event and cultural photography.",u:"https://www.tob.rs/en",k:"tobsekretarica@tob.rs"},
+{n:"Tourist Organisation of Novi Sad (TONS)",g:"Serbia",city:"Novi Sad",cat:"Tourism",t:"pitch",why:"City board, EXPO 2027 nearby will lift demand for photography.",u:"https://novisad.travel",k:"tons@novisad.travel"},
+{n:"Victor Tours DMC",g:"Serbia",city:"Belgrade",cat:"Tourism",t:"pitch",why:"MICE and corporate-event DMC needing event documentation.",u:"https://www.victortours.com",k:"office@victortours.com"},
+{n:"Visit Sofia",g:"Bulgaria",city:"Sofia",cat:"Tourism",t:"pitch",why:"Sofia Municipality tourism, commissions campaign and event photography.",u:"https://www.visitsofia.bg/en/",k:"tic@visitsofia.bg"},
+{n:"Tourism Plovdiv",g:"Bulgaria",city:"Plovdiv",cat:"Tourism",t:"pitch",why:"Body for the European Capital of Culture city, festivals and city content.",u:"https://tourismplovdiv.org",k:"info@tourismplovdiv.org"},
+{n:"Croatian National Tourist Board (HTZ)",g:"Croatia",city:"Zagreb",cat:"Tourism",t:"pitch",why:"National authority, collaborates with destination photographers, press trips.",u:"https://www.htz.hr/en",k:"info@htz.hr"},
+{n:"Zagreb Tourist Board",g:"Croatia",city:"Zagreb",cat:"Tourism",t:"pitch",why:"City board with a photo press kit and event coverage.",u:"https://www.infozagreb.hr/en/",k:"info@infozagreb.hr"},
+{n:"Dubrovnik Tourist Board",g:"Croatia",city:"Dubrovnik",cat:"Tourism",t:"pitch",why:"Board for one of Europe's most photographed cities, heritage and events.",u:"https://visitdubrovnik.hr",k:"info@visitdubrovnik.hr"},
+{n:"Valamar Riviera (hotels)",g:"Croatia",city:"nationwide",cat:"Tourism",t:"pitch",why:"Croatia's largest tourism company (34 hotels), commissions hotel and campaign photography.",u:"https://www.valamar.com",k:"valamar.com (press)"},
+{n:"Slovenian Tourist Board (I Feel Slovenia)",g:"Slovenia",city:"Ljubljana",cat:"Tourism",t:"pitch",why:"National marketing body, media library and press trips.",u:"https://www.slovenia.info/en",k:"info@slovenia.info"},
+{n:"Visit Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"Tourism",t:"pitch",why:"City tourism body, destination content and event calendars.",u:"https://www.visitljubljana.com/en/",k:"pr@visitljubljana.com"},
+{n:"Visit Sarajevo",g:"Bosnia",city:"Sarajevo",cat:"Tourism",t:"pitch",why:"Canton Sarajevo tourism association, campaigns and event documentation.",u:"https://www.visitsarajevo.ba",k:"info@visitsarajevo.ba"},
+{n:"Be In Kosovo",g:"Kosovo",city:"Pristina",cat:"Tourism",t:"pitch",why:"Event-management and tourism services company needing event photography.",u:"https://www.beinkosovo.com",k:"beinkosovo.com (form)"},
+{n:"National Tourism Org of Montenegro",g:"Montenegro",city:"Podgorica",cat:"Tourism",t:"pitch",why:"National body with a media library and press trips for the coast and mountains.",u:"https://www.montenegro.travel/en",k:"info@montenegro.travel"},
+/* Government and municipal */
+{n:"City of Skopje (Grad Skopje)",g:"North Macedonia",city:"Skopje",cat:"Government",t:"pitch",why:"City events and official ceremonies, photography via e-nabavki public tender.",u:"https://skopje.gov.mk",k:"e-nabavki.gov.mk (tenders)"},
+{n:"KIC Skopje (Cultural Information Center)",g:"North Macedonia",city:"Skopje",cat:"Government",t:"pitch",why:"City-funded venue running 200+ events a year, concerts, exhibitions, ceremonies.",u:"https://kic.mk",k:"info@kic.mk"},
+{n:"Youth Cultural Center (MKC) Skopje",g:"North Macedonia",city:"Skopje",cat:"Government",t:"pitch",why:"Public institution with galleries, a concert hall and a planetarium, frequent events.",u:"https://mkc.mk",k:"info@mkc.mk"},
+{n:"Museum of the City of Skopje",g:"North Macedonia",city:"Skopje",cat:"Government",t:"pitch",why:"Public museum with temporary exhibitions and commemorations, tenders documentation.",u:"https://muzejnagradskopje.mk",k:"muzejnagradskopje.mk"},
+{n:"Municipality of Ohrid",g:"North Macedonia",city:"Ohrid",cat:"Government",t:"pitch",why:"City-day, UNESCO and cultural events arranged via the mayor's cabinet.",u:"https://ohrid.gov.mk",k:"ohrid.gov.mk"},
+{n:"Municipality of Bitola",g:"North Macedonia",city:"Bitola",cat:"Government",t:"pitch",why:"UNESCO Creative City of Film, Day of Culture, Ilinden Days, Film City programme.",u:"https://bitola.gov.mk",k:"bitola.gov.mk"},
+{n:"Municipality of Thessaloniki",g:"Greece",city:"Thessaloniki",cat:"Government",t:"pitch",why:"City ceremonies and festivals, accredits via Marketing and Communications.",u:"https://thessaloniki.gr",k:"info@thessaloniki.gr"},
+{n:"City of Belgrade, Secretariat for Culture",g:"Serbia",city:"Belgrade",cat:"Government",t:"pitch",why:"City ceremonies and events, documentation via Serbian public procurement.",u:"https://beograd.rs",k:"portal.ujn.gov.rs (tenders)"},
+{n:"Tirana Municipality (procurement)",g:"Albania",city:"Tirana",cat:"Government",t:"pitch",why:"New Year's Festival and city events, posts Media and Visibility tenders.",u:"https://tirana.al",k:"app.e-albania.al (tenders)"},
+{n:"Sofia Municipality",g:"Bulgaria",city:"Sofia",cat:"Government",t:"pitch",why:"Cultural calendar (FotoFabrika etc.) and city ceremonies, supports photo events.",u:"https://sofia.bg",k:"sofia.bg (events)"},
+{n:"Podgorica Capital City, Culture Secretariat",g:"Montenegro",city:"Podgorica",cat:"Government",t:"pitch",why:"Cultural Summer, Jazz, sculpture and photo-month events, tendered photography.",u:"https://podgorica.me",k:"podgorica.me"},
+{n:"City of Zagreb",g:"Croatia",city:"Zagreb",cat:"Government",t:"pitch",why:"City Day (May 31) concerts, workshops and exhibitions across the city.",u:"https://zagreb.hr",k:"web-urednik@zagreb.hr"},
+/* Standing cultural institutions (theatres, operas, philharmonics, museums, galleries) */
+{n:"Macedonian National Theatre",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"Principal drama, opera and dance house, premieres and season campaigns.",u:"http://www.mnt.mk",k:"+389 23 230 304"},
+{n:"National Opera and Ballet (MOB)",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"The country's only opera and ballet company, production documentation.",u:"https://operabalet.mk/en/",k:"marketing@mob.com.mk"},
+{n:"Philharmonic of North Macedonia",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"National orchestra, full concert season with soloists and galas.",u:"https://www.filharmonija.mk/en/",k:"contact@filharmonija.org.mk"},
+{n:"Manaki Brothers Film Festival",g:"North Macedonia",city:"Bitola",cat:"Culture",t:"pitch",why:"The world's oldest cinematographers' festival (September), press accreditation form.",u:"https://manaki.com.mk",k:"manaki.com.mk"},
+{n:"Skopje Book Fair (GMG)",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"National book fair (April), 65+ publishers, 30,000+ visitors, accredits photographers.",u:"https://gmg.mk",k:"info@gmg.mk"},
+{n:"Greek National Opera",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"Major opera house at the SNFCC, 180+ performances a year, works with freelancers.",u:"https://www.nationalopera.gr/en/",k:"info@nationalopera.gr"},
+{n:"Athens Concert Hall (Megaron)",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"Greece's primary concert venue, season launches and galas, accredits press.",u:"https://www.megaron.gr/en/",k:"pressoffice@megaron.gr"},
+{n:"Thessaloniki Concert Hall",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"Northern Greece's main performing-arts complex, full season.",u:"https://www.tch.gr",k:"info@tch.gr"},
+{n:"EMST, National Museum of Contemporary Art",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"National contemporary art museum, major openings and loan shows.",u:"https://www.emst.gr/en/",k:"pressoffice@emst.gr"},
+{n:"National Theatre of Opera and Ballet (TKOB)",g:"Albania",city:"Tirana",cat:"Culture",t:"pitch",why:"Albania's opera and ballet on Skanderbeg Square, season and premieres.",u:"https://tkob.gov.al/?lang=en",k:"sekretaria@tkob.gov.al"},
+{n:"National Gallery of Arts Albania",g:"Albania",city:"Tirana",cat:"Culture",t:"pitch",why:"Principal fine-art museum, exhibitions needing opening and installation photos.",u:"http://galeriakombetare.gov.al/en/",k:"galeriakombetare.gov.al"},
+{n:"National Theatre in Belgrade",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"Drama, opera and ballet under one roof, premieres and season campaigns.",u:"https://www.narodnopozoriste.rs/en/",k:"uprava@narodnopozoriste.rs"},
+{n:"Belgrade Philharmonic Orchestra",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"Premier orchestra at Kolarac, concert and brochure shoots from freelancers.",u:"https://www.bgf.rs/en/",k:"office@bgf.co.rs"},
+{n:"Museum of Contemporary Art Belgrade",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"International-standard contemporary museum, openings and performances.",u:"https://msub.org.rs",k:"natasa@msub.org.rs"},
+{n:"Serbian National Theatre",g:"Serbia",city:"Novi Sad",cat:"Culture",t:"pitch",why:"The oldest theatre institution, drama, opera and ballet seasons.",u:"https://www.snp.org.rs/en/",k:"snp.org.rs"},
+{n:"Sofia Opera and Ballet",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"180+ performances a year, one of the busiest lyric theatres in SE Europe.",u:"https://operasofia.bg/en/",k:"operasofia.bg"},
+{n:"Sofia Philharmonic",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"National orchestra at Bulgaria Hall, season launches and galas.",u:"https://sofiaphilharmonic.com/en/",k:"office@sofiaphilharmonic.com"},
+{n:"National Gallery of Bulgaria",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"Largest art institution across several venues incl. the contemporary SAMCA.",u:"https://nationalgallery.bg/",k:"nationalgallery.bg"},
+{n:"Croatian National Theatre Zagreb (HNK)",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"Central theatre with opera, drama and ballet, premieres and season openings.",u:"https://www.hnk.hr",k:"hnk@hnk.hr"},
+{n:"Vatroslav Lisinski Concert Hall",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"Zagreb's primary concert venue, 250,000+ visitors a year, has a media section.",u:"https://lisinski.hr/en/",k:"lisinski.hr"},
+{n:"Museum of Contemporary Art Zagreb (MSU)",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"Largest Croatian contemporary museum with a photography collection, openings.",u:"http://www.msu.hr",k:"msu@msu.hr"},
+{n:"Croatian National Theatre Split",g:"Croatia",city:"Split",cat:"Culture",t:"pitch",why:"Opera, drama and ballet on the coast, summer schedule drives stills demand.",u:"https://www.hnk-split.hr/en/",k:"hnk-split.hr (form)"},
+{n:"SNG Opera and Ballet Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"National opera and ballet in a landmark house, premieres and tours.",u:"https://www.opera.si",k:"blagajna@opera.si"},
+{n:"Slovenian Philharmonic",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"One of Europe's oldest philharmonics, full subscription season.",u:"https://filharmonija.si/en/",k:"info@filharmonija.si"},
+{n:"Moderna Galerija (MG+MSUM)",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"National modern and contemporary art museum, retrospectives and openings.",u:"https://www.mg-lj.si/en/",k:"info@mg-lj.si"},
+{n:"Sarajevo National Theatre",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"The largest theatre in BiH (drama, opera, ballet), premieres and campaigns.",u:"http://www.nps.ba",k:"nps.ba"},
+{n:"Sarajevo Philharmonic Orchestra",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"Premier BiH orchestra, full season with soloists and launches.",u:"https://saph.ba/",k:"info@saph.ba"},
+{n:"National Gallery of Bosnia (UGBiH)",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"Oldest BiH art museum with a photography archive, exhibitions and openings.",u:"https://ugbih.ba/en/",k:"info@ugbih.ba"},
+{n:"National Theatre of Kosovo",g:"Kosovo",city:"Pristina",cat:"Culture",t:"pitch",why:"Principal theatre on Mother Teresa Square, premiere seasons.",u:"http://www.teatrikombetar.info",k:"teatri.kombetar@rks-gov.net"},
+{n:"Kosovo Philharmonic",g:"Kosovo",city:"Pristina",cat:"Culture",t:"pitch",why:"Main symphony orchestra, concert-season and special-event coverage.",u:"https://filharmoniaekosoves.com/",k:"kosovo.philharmonic@gmail.com"},
+{n:"National Gallery of Kosovo",g:"Kosovo",city:"Pristina",cat:"Culture",t:"pitch",why:"Primary fine-art institution, rotating shows incl. photography.",u:"https://www.galeriakombetare-rks.com/en/",k:"galeriakombetare-rks.com"},
+{n:"Montenegrin National Theatre",g:"Montenegro",city:"Podgorica",cat:"Culture",t:"pitch",why:"National drama and performance institution, premiere and promo photography.",u:"http://cnp.me",k:"ilija.subotic@cnp.me"},
+{n:"Museum of Contemporary Art Montenegro",g:"Montenegro",city:"Podgorica",cat:"Culture",t:"pitch",why:"Main contemporary art institution with the Petrovic Palace annex, openings.",u:"https://www.msucg.me",k:"info@msucg.me"},
+/* Education */
+{n:"Ss. Cyril and Methodius University (UKIM)",g:"North Macedonia",city:"Skopje",cat:"Education",t:"pitch",why:"Largest public university, graduations across 23 faculties and congresses.",u:"https://ukim.edu.mk/en/",k:"ukim@ukim.edu.mk"},
+{n:"University American College Skopje (UACS)",g:"North Macedonia",city:"Skopje",cat:"Education",t:"pitch",why:"Private university with graduation, Career Day, Open Day and Orientation events.",u:"https://www.uacs.edu.mk",k:"info@uacs.edu.mk"},
+{n:"South East European University (SEEU)",g:"North Macedonia",city:"Tetovo",cat:"Education",t:"pitch",why:"Multi-campus university, graduations and open days, has a marketing office.",u:"https://www.seeu.edu.mk",k:"proffice@seeu.edu.mk"},
+{n:"NOVA International School Skopje",g:"North Macedonia",city:"Skopje",cat:"Education",t:"pitch",why:"IB school with graduations, performances and community events, uses freelancers.",u:"https://www.nova.edu.mk",k:"nova.edu.mk (contact)"},
+{n:"The American College of Greece (Deree)",g:"Greece",city:"Athens",cat:"Education",t:"pitch",why:"Large English-language college, two commencements a year plus conferences.",u:"https://www.acg.edu",k:"acg.edu (events)"},
+{n:"BEST Thessaloniki",g:"Greece",city:"Thessaloniki",cat:"Education",t:"pitch",why:"Engineering student org running international courses and competitions needing coverage.",u:"https://best.web.auth.gr",k:"thessaloniki@best-eu.org"},
+{n:"University of Belgrade, Faculty of Economics",g:"Serbia",city:"Belgrade",cat:"Education",t:"pitch",why:"Conferences and graduations, commissions external photographers.",u:"https://www.ekof.bg.ac.rs",k:"ekof@ekof.bg.ac.rs"},
+{n:"International School of Belgrade (ISB)",g:"Serbia",city:"Belgrade",cat:"Education",t:"pitch",why:"Oldest international school in Serbia, graduations and cultural events.",u:"https://www.isb.rs",k:"isb@isb.rs"},
+{n:"Zagreb School of Economics and Management (ZSEM)",g:"Croatia",city:"Zagreb",cat:"Education",t:"pitch",why:"Business school with graduations, awards and a major job fair.",u:"https://zsem.hr/en/",k:"zsem@zsem.hr"},
+{n:"University of New York Tirana (UNYT)",g:"Albania",city:"Tirana",cat:"Education",t:"pitch",why:"American-curriculum university, annual commencement drawing regional students.",u:"https://unyt.edu.al",k:"international@unyt.edu.al"},
+{n:"Tirana Business University (TBU)",g:"Albania",city:"Tirana",cat:"Education",t:"pitch",why:"Business and IT university with graduations and partner events.",u:"https://tbu.edu.al",k:"skondi@tbu.edu.al"},
+{n:"Sofia University St. Kliment Ohridski",g:"Bulgaria",city:"Sofia",cat:"Education",t:"pitch",why:"Largest Bulgarian university, multiple graduation ceremonies a year.",u:"https://www.uni-sofia.bg",k:"pr@uni-sofia.bg"},
+{n:"University of Sarajevo (UNSA)",g:"Bosnia",city:"Sarajevo",cat:"Education",t:"pitch",why:"Principal public university, large diploma ceremonies with diplomats.",u:"https://www.unsa.ba",k:"info@unsa.ba"},
+{n:"RIT Kosovo (AUK)",g:"Kosovo",city:"Pristina",cat:"Education",t:"pitch",why:"American university with a high-production annual commencement.",u:"https://www.rit.edu/kosovo",k:"rit.edu/kosovo (form)"},
+{n:"University of Donja Gorica (UDG)",g:"Montenegro",city:"Podgorica",cat:"Education",t:"pitch",why:"Leading private university, graduations and student-life events.",u:"https://www.udg.edu.me/en/",k:"udg.edu.me (form)"},
+{n:"University of Ljubljana",g:"Slovenia",city:"Ljubljana",cat:"Education",t:"pitch",why:"Largest Slovenian university, doctoral and MBA ceremonies as public events.",u:"https://www.uni-lj.si/en/",k:"pr@uni-lj.si"},
+/* Business, expos and startup */
+{n:"Skopje Fair (ERA Group)",g:"North Macedonia",city:"Skopje",cat:"Corporate",t:"pitch",why:"The country's primary fairground, year-round trade fairs, exhibitor media services.",u:"https://skopjefair.com.mk",k:"skopjefair.com.mk (media)"},
+{n:"German-Macedonian Chamber (AHK)",g:"North Macedonia",city:"Skopje",cat:"Corporate",t:"pitch",why:"Bilateral galas, investment forums and matchmaking events.",u:"https://nordmazedonien.ahk.de/en/",k:"tomova@nordmazedonien.ahk.de"},
+{n:"Belgrade Fair (Beogradski Sajam)",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"SE Europe's largest fair organiser, 17+ expos a year needing event photography.",u:"https://sajam.rs/en/",k:"media@sajam.rs"},
+{n:"REBEC (Real Estate Belgrade)",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"Annual real-estate investment conference and exhibition (June).",u:"https://rebec.rs/eng/",k:"conference@rebec.rs"},
+{n:"Impact Hub Belgrade",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"Accelerator hosting the Western Balkan Demo Day quarterly plus meetups.",u:"https://belgrade.impacthub.net/",k:"belgrade.impacthub.net (form)"},
+{n:"ICT Hub Belgrade",g:"Serbia",city:"Belgrade",cat:"Corporate",t:"pitch",why:"Incubator with six venues, lists event photography in its package.",u:"https://www.icthub.rs/en/",k:"icthub.rs (contact)"},
+{n:"International Fair Plovdiv",g:"Bulgaria",city:"Plovdiv",cat:"Corporate",t:"pitch",why:"Bulgaria's largest fair venue, AGRA, FOODTECH, HEMUS and more.",u:"https://www.fair.bg/en/",k:"fair.bg/en/contacts"},
+{n:"Sofia Tech Park",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"pitch",why:"Science park hosting startup pitching, hackathons and EU competitions.",u:"https://sofiatech.bg/en/",k:"office@sofiatech.bg"},
+{n:"Eleven Ventures",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"pitch",why:"Leading SEE accelerator, twice-yearly demo days at Campus X.",u:"https://www.11.vc/",k:"11.vc (contact)"},
+{n:"Bulgarian Business Leaders Forum (BBLF)",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"pitch",why:"Annual Responsible Business Awards, black-tie gala, hires a photographer yearly.",u:"https://www.bblf.bg/en/",k:"bblf.bg/en (contact)"},
+{n:"Panathenea Festival",g:"Greece",city:"Athens",cat:"Corporate",t:"pitch",why:"Student-led tech and startup festival at Zappeion (May), 10,000+ attendees.",u:"https://www.panathenea.org/",k:"panathenea.org/contact"},
+{n:"Klik Ekspo Group (Tirana Fair)",g:"Albania",city:"Tirana",cat:"Corporate",t:"pitch",why:"Organises the Tirana International Fair and sector expos, incl. Kosovo.",u:"https://www.klikekspogroup.com/",k:"info@klikekspogroup.com"},
+{n:"Mostar International Fair",g:"Bosnia",city:"Mostar",cat:"Corporate",t:"pitch",why:"Major multi-sector fair (April), 900 exhibitors from 27 countries.",u:"https://mostar-fair.com/en",k:"info@mostarski-sajam.com"},
+{n:"Sarajevo Business Forum (BBI)",g:"Bosnia",city:"Sarajevo",cat:"Corporate",t:"pitch",why:"Annual investment conference, 500+ participants, conference and awards format.",u:"https://bbi.ba/sarajevobusinessforum/",k:"info@sarajevobusinessforum.com"},
+{n:"Foreign Trade Chamber of BiH",g:"Bosnia",city:"Sarajevo",cat:"Corporate",t:"pitch",why:"Co-organises the Mostar Fair and 20+ branch events.",u:"https://komorabih.ba/en/",k:"info@komorabih.ba"},
+{n:"Zagreb Fair (Velesajam)",g:"Croatia",city:"Zagreb",cat:"Corporate",t:"pitch",why:"25+ specialised expos a year, formal media accreditation.",u:"https://www.zv.hr/en",k:"zv.hr/contact"},
+{n:"Healthtech Adria Conference",g:"Croatia",city:"Split",cat:"Corporate",t:"pitch",why:"Annual healthtech conference and awards (October), regional draw.",u:"https://htadria.com/",k:"info@htadria.hr"},
+{n:"People Experience Conference (The P World)",g:"Croatia",city:"Zagreb",cat:"Corporate",t:"pitch",why:"Flagship HR summit (April), speakers from Google, Siemens, Danone.",u:"https://www.thepworld.com",k:"thepworld.com (contact)"},
+{n:"Pomurski Sejem (Agra Fair)",g:"Slovenia",city:"Gornja Radgona",cat:"Corporate",t:"pitch",why:"One of the largest CEE agriculture and food fairs (August).",u:"https://www.sejem-agra.si/en/",k:"sejem-agra.si/en/contact"},
+{n:"Chamber of Commerce Slovenia (GZS)",g:"Slovenia",city:"Ljubljana",cat:"Corporate",t:"pitch",why:"National chamber, business conference, summits and award ceremonies.",u:"https://eng.gzs.si/",k:"info@gzs.si"},
+{n:"Innovation Centre Kosovo (ICK)",g:"Kosovo",city:"Pristina",cat:"Corporate",t:"pitch",why:"Leading innovation hub, Startup Weekend, hackathons and cohort events.",u:"https://ickosovo.com/",k:"ickosovo.com (contact)"},
+{n:"Science and Technology Park Montenegro (AIM)",g:"Montenegro",city:"Podgorica",cat:"Corporate",t:"pitch",why:"AIM Innovation Week and Investment Conference with startup pitch finals.",u:"https://ntpark.me/en/",k:"aim@mia.gov.me"},
+{n:"Chamber of Economy of Montenegro",g:"Montenegro",city:"Podgorica",cat:"Corporate",t:"pitch",why:"Economy Conference, business forums and Chamber Awards galas.",u:"https://komora.me/en/",k:"komora.me/en"},
+/* Media, editorial and stock (per assignment / per image) */
+{n:"Associated Press (AP), regional",g:"Regional",city:"Belgrade / Athens bureaus",cat:"Media",t:"pitch",why:"Wire that uses local stringers for events staff cannot reach. Pitch the nearest bureau editor.",u:"https://www.apimages.com",k:"Belgrade/Athens bureau editor"},
+{n:"Reuters, regional",g:"Regional",city:"SE Europe bureaus",cat:"Media",t:"pitch",why:"Hard news and sport for global subscribers, ad-hoc stringer assignments.",u:"https://www.reuters.com",k:"Belgrade/Athens/Sofia bureau"},
+{n:"AFP, regional",g:"Regional",city:"Balkan bureaus",cat:"Media",t:"pitch",why:"News, sport and culture for global subscribers, per-assignment or per-image.",u:"https://www.afp.com",k:"contact@afp.com"},
+{n:"EPA Images",g:"Regional",city:"network",cat:"Media",t:"pitch",why:"European Pressphoto Agency, per accepted image, contributor by portfolio.",u:"https://epaimages.com",k:"sales@epaimages.com"},
+{n:"Getty Images (via LightRocket)",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Editorial gold standard, realistic path is LightRocket then apply to Getty.",u:"https://www.gettyimages.com/workwithus",k:"lightrocket.com"},
+{n:"NurPhoto Agency",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Large independent editorial agency, open contributor application.",u:"https://www.nurphoto.com",k:"nurphoto.com/job-offers"},
+{n:"Anadolu Agency (Anadolu Images)",g:"Regional",city:"Skopje + Balkan bureaus",cat:"Media",t:"pitch",why:"Major editorial portal for the Balkans, contact the Skopje bureau.",u:"https://www.anadoluimages.com",k:"mak@aa.com.tr"},
+{n:"ZUMA Press",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Large independent press agency, photographer registration form.",u:"https://zuma.press",k:"zumapress.com (register)"},
+{n:"Balkan PRESSphoto Agency (BPA)",g:"Regional",city:"Pristina",cat:"Media",t:"pitch",why:"Regional press wire serving foreign media, issues press credentials on review.",u:"http://www.bpaimages.com",k:"becomebpa@bpaimages.com"},
+{n:"PIXSELL / HALOPIX",g:"Regional",city:"Zagreb",cat:"Media",t:"pitch",why:"Croatia and region's leading photo wire, ~200-photographer freelance network.",u:"https://www.pixsell.hr",k:"info@pixsell.hr"},
+{n:"MIA (Media Information Agency)",g:"North Macedonia",city:"Skopje",cat:"Media",t:"pitch",why:"State news agency, pitch yourself for assignments staff cannot cover.",u:"https://mia.mk",k:"mia@mia.mk"},
+{n:"Alamy (Live News)",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Stock plus a live-news wire tier, free signup, images within 24 hours.",u:"https://www.alamy.com",k:"alamy.com/contributor"},
+{n:"Adobe Stock (Editorial)",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Editorial documentary tier, per licensed image, free contributor signup.",u:"https://stock.adobe.com/contributors",k:"stock.adobe.com"},
+{n:"Shutterstock Editorial",g:"Regional",city:"global",cat:"Media",t:"pitch",why:"Editorial tier for real-event documentary content, per licensed image.",u:"https://www.shutterstock.com/editorial/contributor-application",k:"shutterstock.com"},
+{n:"VID Foundation for Photography (grant)",g:"Regional",city:"Balkans",cat:"Media",t:"pitch",pay:"~$1,100 grant",why:"Annual grant for a Balkan documentary/visual-art project plus mentorship.",u:"https://vidfoundation.com/vid-grant/",k:"vidfoundation.com"},
+/* Weddings and private / destination events */
+{n:"Yes I Du Weddings",g:"Croatia",city:"Dubrovnik",cat:"Weddings",t:"pitch",why:"Destination wedding planner, vets and refers external photographers, high volume.",u:"https://yes-i-du.net/",k:"info@yes-i-du.net"},
+{n:"D'Inspiration Luxe Weddings",g:"Croatia",city:"Dubrovnik",cat:"Weddings",t:"pitch",why:"Luxury planner referring photographers from a preferred-vendor list.",u:"https://dubrovnikweddinginspiration.com/",k:"info@dubrovnikweddinginspiration.com"},
+{n:"Dubrovnik Luxury Weddings",g:"Croatia",city:"Dubrovnik",cat:"Weddings",t:"pitch",why:"500+ weddings, featured in Vogue, hires and refers photographers.",u:"https://www.dubrovnikluxuryweddings.com/",k:"info@dubrovnikluxuryweddings.com"},
+{n:"Studio Brzak Events",g:"Croatia",city:"Porec",cat:"Weddings",t:"pitch",why:"Luxury Istria planner that subcontracts photo/video partners.",u:"https://studiobrzak.tv/",k:"stella@studiobrzak.tv"},
+{n:"Santorini Wedding Planner",g:"Greece",city:"Santorini",cat:"Weddings",t:"pitch",why:"Luxury Santorini coordinator with a partner-photographer directory.",u:"https://www.santoriniweddingplanner.com/",k:"info@santoriniweddingplanner.com"},
+{n:"Riviera Blu Events",g:"Greece",city:"Athens",cat:"Weddings",t:"pitch",why:"Event-design studio covering mainland and islands, refers vetted photographers.",u:"https://www.rivierabluevents.com/",k:"info@rivierabluevents.com"},
+{n:"Rogdaki Events",g:"Greece",city:"Mykonos",cat:"Weddings",t:"pitch",why:"Award-winning island and mainland planner, refers and subcontracts photographers.",u:"https://rogdaki.com/",k:"rogdaki.com (contact)"},
+{n:"DSA Weddings",g:"Montenegro",city:"Budva",cat:"Weddings",t:"pitch",why:"Licensed destination agency (Budva, Kotor, Tivat), subcontracts photographers.",u:"https://dsa-weddings.com/en/",k:"info@dsa-weddings.com"},
+{n:"Matthew Oliver Weddings (Montenegro)",g:"Montenegro",city:"Budva / Kotor",cat:"Weddings",t:"pitch",why:"International luxury house sourcing local photographers for coastal resorts.",u:"https://matthewoliverweddings.com/",k:"matthewoliverweddings.com (form)"},
+{n:"Lake Bled Weddings (Petra Starbek)",g:"Slovenia",city:"Bled",cat:"Weddings",t:"pitch",why:"Award-winning planner, 500+ weddings, refers from a trusted vendor network.",u:"https://www.lakebledweddings.si/",k:"bled@storija.si"},
+{n:"Dream Wedding Slovenia",g:"Slovenia",city:"Bled",cat:"Weddings",t:"pitch",why:"Boutique Bled planner, recommends photographers she vouches for.",u:"https://dream-wedding-slovenia.com/",k:"melita@dream-wedding-slovenia.com"},
+{n:"EVENTI Wedding Planner Ohrid",g:"North Macedonia",city:"Ohrid",cat:"Weddings",t:"pitch",why:"Lake Ohrid wedding and events studio, a home-market channel with less competition.",u:"https://weddingplannerohrid.com/",k:"info@weddingplannerohrid.com"},
+{n:"Agency SNOB",g:"Serbia",city:"Belgrade",cat:"Weddings",t:"pitch",why:"Leading Belgrade luxury event and wedding agency, sources photographers.",u:"https://agencija-organizacija-dogadjaja.com/",k:"agencija-organizacija-dogadjaja.com (form)"},
+{n:"Alfa Luxury Events",g:"Bulgaria",city:"Sofia",cat:"Weddings",t:"pitch",why:"High-end planner across Bulgaria and Greece, curated vendor teams.",u:"https://alfaevents.eu/",k:"info@alfaevents.eu"},
+{n:"Insidewedding",g:"Bulgaria",city:"Sofia",cat:"Weddings",t:"pitch",why:"Wedding agency assembling per-couple vendor teams, open to photographer referrals.",u:"https://insidewedding-en.com/",k:"insidewedding.pro@gmail.com"},
+{n:"Vila Toscana",g:"Albania",city:"Tirana",cat:"Weddings",t:"pitch",why:"Leading Tirana wedding venue, full-package events, open to outside photographers.",u:"https://vilatoscana.al/en/",k:"evente@vilatoscana.al"},
+/* Agencies, collectives and photographer-staffing */
+{n:"Emerge Film Solutions",g:"Regional",city:"global network",cat:"Agencies",t:"pitch",why:"Production-services network placing local photographers on shoots across the region.",u:"https://emergefilmsolutions.com/",k:"wheretoshoot@mac.com"},
+{n:"New Moment New Ideas",g:"Regional",city:"Belgrade + 10 cities",cat:"Agencies",t:"pitch",why:"Most-awarded Balkan creative agency, event production in 11 cities, one relationship many gigs.",u:"https://www.newmoment.com/",k:"newmoment.com (contact)"},
+{n:"M2Communications",g:"Serbia",city:"Belgrade",cat:"Agencies",t:"pitch",why:"Live-communications and event-production agency, photography on almost every project.",u:"https://m2c.rs/en/",k:"office@m2c.rs"},
+{n:"SVORA Creative and Event Agency",g:"Serbia",city:"Belgrade",cat:"Agencies",t:"pitch",why:"Large-scale brand events, recurring event-photography need.",u:"https://svora.group/",k:"svora.group (form)"},
+{n:"Fabrika (PR and luxury events)",g:"Serbia",city:"Belgrade",cat:"Agencies",t:"pitch",why:"Fashion and event PR agency, runs Belgrade Fashion Nights and a Kotor fashion festival.",u:"https://fabrika.rs/en/",k:"fabrika.rs/kontakt.php"},
+{n:"Big Picture Events",g:"Greece",city:"Athens",cat:"Agencies",t:"pitch",why:"Premium corporate-event agency listing event photography as a core service.",u:"https://bigpicture-events.gr/",k:"events@bigpicture-events.gr"},
+{n:"Golden Goose Events (Athens)",g:"Greece",city:"Athens",cat:"Agencies",t:"pitch",why:"Event-staffing agency supplying photographers to brands, apply via Staff Area.",u:"https://www.golden-goose-events.com/photographers/",k:"golden-goose-events.com/contact"},
+{n:"FYE (For Your Event)",g:"Greece",city:"Athens",cat:"Agencies",t:"pitch",why:"Full-service event and wedding agency, photography in every package.",u:"https://www.fyevent.gr/",k:"fyevent.gr (form)"},
+{n:"Manderina Marketing",g:"Albania",city:"Tirana",cat:"Agencies",t:"pitch",why:"PR, branding and event-management agency, photography among services.",u:"https://www.manderina.com/",k:"contact@manderina.com"},
+{n:"Genuine Effect",g:"Albania",city:"Tirana",cat:"Agencies",t:"pitch",why:"PR and event agency running brand events needing photo coverage.",u:"https://www.genuine-effect.co.uk/",k:"elda@genuine-effect.com"},
+{n:".shock Studio (dotshock)",g:"Bosnia",city:"Sarajevo",cat:"Agencies",t:"pitch",why:"Premium photo and video studio partnering freelancers on larger productions.",u:"https://shock.co.ba/",k:"shock.co.ba/contact-1"},
+{n:"MAPA (Montenegro Advertising and Production)",g:"Montenegro",city:"Podgorica",cat:"Agencies",t:"pitch",why:"The dominant Montenegro agency, reliable repeat event-photography assignments.",u:"https://www.mapa.co.me/",k:"mapa@t-com.me"},
+{n:"Split Photo Agency",g:"Croatia",city:"Split",cat:"Agencies",t:"pitch",why:"Studio and agency open to second-shooter and collaboration work, travels.",u:"https://www.splitphotoagency.com/",k:"splitphotoagency@gmail.com"},
+{n:"Shootday",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"Corporate event photo/video platform, you shoot RAW and they edit, apply with portfolio.",u:"https://shootday.com/",k:"jobs.gohire.io/shootday"},
+{n:"GetCameraCrew",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"Marketplace sending quote requests to local creators in your city, sign up free.",u:"https://getcameracrew.com/",k:"getcameracrew.com (join)"},
+{n:"ACrew4U",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"Hand-picked video and photo crew network across the Balkans, apply via Join Us.",u:"https://acrew4u.com/",k:"acrew4u.com (join)"},
+{n:"Localgrapher",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"Lifestyle and destination booking platform, repeat tourist-season work.",u:"https://www.localgrapher.com/",k:"localgrapher.com (join)"},
+{n:"Splento",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"On-demand event and corporate photography, per-booking, 24-hour delivery.",u:"https://www.splento.com/",k:"splento.com/join-us"},
+{n:"Snappr",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"On-demand booking platform, selective intake, needs pro kit and a strong portfolio.",u:"https://www.snappr.com/",k:"app.snappr.com/join"},
+{n:"SweetEscape",g:"Regional",city:"global platform",cat:"Agencies",t:"pitch",why:"Travel and lifestyle booking platform, repeat work in tourist cities.",u:"https://www.sweetescape.com/en/",k:"hireme@sweetescape.com"},
+/* Other public and seasonal events */
+{n:"Skopje Light Art District (SLAD)",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"Outdoor light-art festival (September), installations and projections across the centre.",u:"https://www.facebook.com/SkLAD2021",k:"dmwc.org.mk"},
+{n:"Skopje New Year's Eve Celebration",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"The city's largest public gathering (Dec 31), countdown concert and fireworks.",u:"https://skopje.gov.mk",k:"skopje.gov.mk (press)"},
+{n:"Urusai Con",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"Serbia's largest pop-culture convention (June), anime, gaming, cosplay championship.",u:"https://urusaicon.com",k:"urusaicon.com (form)"},
+{n:"MOTOPASSION (motorcycle fair)",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"International motorcycle and scooter show at Belgrade Fair (March), press accreditation.",u:"https://sajamautomobila.rs",k:"auto@sajam.rs"},
+{n:"Belgrade Pride",g:"Serbia",city:"Belgrade",cat:"NGO",t:"pitch",why:"Annual LGBTQ+ pride week and march (September), mandatory press accreditation.",u:"https://prajd.rs",k:"press@belgradepride.rs"},
+{n:"Advent in Zagreb",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"Europe's most-awarded Christmas market (late Nov to early Jan), 25+ locations.",u:"https://adventzagreb.com",k:"info@infozagreb.hr"},
+{n:"Interliber",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"Croatia's largest book fair (November), 300+ exhibitors, 120,000+ visitors.",u:"https://www.zv.hr",k:"zv.hr/press"},
+{n:"Zagreb Pride",g:"Croatia",city:"Zagreb",cat:"NGO",t:"pitch",why:"SE Europe's oldest continuous pride march (June) with a week of programming.",u:"https://zagreb-pride.net",k:"info@zagreb-pride.net"},
+{n:"Na Meji Nevidnega (NMN)",g:"Slovenia",city:"Ljubljana",cat:"Culture",t:"pitch",why:"Slovenia's largest sci-fi, fantasy and cosplay convention (late May), ~6,000 visitors.",u:"https://nmn.si",k:"info@nmn.si"},
+{n:"LUNAR Festival of Lights",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"Outdoor light-art festival with 3D mapping, free admission, spring and coast editions.",u:"https://lunarlights.eu",k:"media@lunarlights.eu"},
+{n:"Bulgaria Tattoo Expo",g:"Bulgaria",city:"Sofia",cat:"Culture",t:"pitch",why:"Two-day tattoo convention at NDK (September), 200+ artists.",u:"https://bulgariatattooexpo.com",k:"info@bulgariatattooexpo.com"},
+{n:"Comicdom CON Athens",g:"Greece",city:"Athens",cat:"Culture",t:"pitch",why:"Greece's largest comics and pop-culture festival (May), free admission, 200-artist alley.",u:"https://comicdom-con.gr",k:"info@comicdom-con.gr"},
+{n:"The Comic Con Thessaloniki",g:"Greece",city:"Thessaloniki",cat:"Culture",t:"pitch",why:"Premier comic convention (May), gaming, cosplay and panels at HELEXPO.",u:"https://thecomiccon.gr",k:"info@thecomiccon.gr"},
+{n:"Thessaloniki Pride",g:"Greece",city:"Thessaloniki",cat:"NGO",t:"pitch",why:"Annual LGBTQ+ pride week (June), march and closing concert at the White Tower.",u:"https://thessalonikipride.com",k:"thessalonikipride.com (contact)"},
+{n:"Moto Fest Banja Luka",g:"Bosnia",city:"Banja Luka",cat:"Culture",t:"pitch",why:"Motorcycle and rock festival at Kastel Fortress (late May), parade and concerts.",u:"https://motofestbl.com",k:"motofestbl.com (contact)"},
+{n:"Tirana Book Fair",g:"Albania",city:"Tirana",cat:"Culture",t:"pitch",why:"National book fair (November) at the Palace of Congresses, 80+ stands.",u:"https://visit-tirana.com",k:"Association of Albanian Publishers"},
+{n:"Tirana New Year's Eve Concert",g:"Albania",city:"Tirana",cat:"Culture",t:"pitch",why:"City countdown concert and fireworks on Skanderbeg Square (Dec 31).",u:"https://visit-tirana.com",k:"visit-tirana.com (press)"}
 ];
 
-const CATS = ["NGO","International","Culture","Corporate","Food","Kids"];
+const CATS = ["NGO","International","Culture","Corporate","Food","Kids","Sports","Fashion","Film/TV","Tourism","Government","Education","Media","Weddings","Agencies"];
+const CAT_COLORS = {NGO:"#3fb27f",International:"#4f9cf2",Culture:"#a472f0",Corporate:"#7c8aa3",Food:"#e0a93c",Kids:"#ef6fa6",Sports:"#2bb0a6",Fashion:"#e36fb0","Film/TV":"#cf6b5c",Tourism:"#3fb6cf",Government:"#9b8cc4",Education:"#6fa8dc",Media:"#c98bd1",Weddings:"#d98aa8",Agencies:"#8aa0b8"};
 const state = {mode:"all", geo:"all", cat:"all", fund:"all", q:""};
 
 // build country pills from data
@@ -539,6 +780,15 @@ geos.forEach(g=>{
   const s=document.createElement("span");
   s.className="pill geo"; s.dataset.geo=g; s.textContent=g;
   geoRow.appendChild(s);
+});
+
+// build category pills from the ordered list, coloured per category
+const catRow = document.getElementById("catRow");
+CATS.forEach(c=>{
+  const s=document.createElement("span");
+  s.className="pill cat"; s.dataset.v=c; s.textContent=c;
+  s.style.setProperty("--cc", CAT_COLORS[c]||"#7c8aa3");
+  catRow.appendChild(s);
 });
 
 function matches(d){
@@ -577,7 +827,8 @@ const EST={
   corporate:{low:"$200-550/day",mid:"$385-715/day",eu:"$550-1300/day"},
   food:{low:"$110-250/day",mid:"$150-350/day",eu:"$250-600/day"},
   kids:{low:"$110-275/day",mid:"$175-350/day",eu:"$300-600/day"},
-  consult:{low:"$150-350/day",mid:"$220-500/day",eu:"$400-700/day"}
+  consult:{low:"$150-350/day",mid:"$220-500/day",eu:"$400-700/day"},
+  wedding:{low:"$900-2500/event",mid:"$1200-3000/event",eu:"$1600-3800/event"}
 };
 function payFor(d){
   if(d.pay) return d.pay;
@@ -586,13 +837,12 @@ function payFor(d){
     if(d.cat==='International'||d.cat==='NGO') return EST.consult[t]+"*";
     return "press access";
   }
-  let key;
-  if(d.cat==='NGO') key=d.funded?'donorIntl':'localNGO';
-  else if(d.cat==='International') key='donorIntl';
-  else if(d.cat==='Culture') key='festival';
-  else if(d.cat==='Corporate') key='corporate';
-  else if(d.cat==='Food') key='food';
-  else key='kids';
+  if(d.cat==='Media') return "per assignment*";
+  const KEY={NGO:d.funded?'donorIntl':'localNGO',International:'donorIntl',Culture:'festival',
+    Corporate:'corporate',Food:'food',Kids:'kids',Sports:'festival',Fashion:'festival',
+    'Film/TV':'corporate',Tourism:'corporate',Government:'donorIntl',Education:'festival',
+    Weddings:'wedding',Agencies:'corporate'};
+  const key=KEY[d.cat]||'localNGO';
   return EST[key][t]+"*";
 }
 function payClass(pv){
@@ -605,13 +855,13 @@ function render(){
   const grid=document.getElementById("grid");
   const list=DATA.filter(matches);
   grid.innerHTML = list.map(d=>{
-    const col = `var(--${d.cat==="NGO"?"ngo":d.cat==="International"?"intl":d.cat==="Culture"?"culture":d.cat==="Corporate"?"corp":d.cat==="Food"?"food":"kids"})`;
+    const col = CAT_COLORS[d.cat]||"#7c8aa3";
     const pv = payFor(d);
     return `<div class="card ${d.t==='live'?'live':''}" style="border-left-color:${col}">
       <div class="tags">
         <span class="tag pay ${payClass(pv)}">${pv}</span>
         <span class="tag geo">${d.g}${d.city?", "+d.city:""}</span>
-        <span class="tag ${d.cat}">${d.cat}</span>
+        <span class="tag" style="background:${col}22;color:${col}">${d.cat}</span>
         ${d.funded?'<span class="tag funded">donor-funded</span>':''}
         ${d.t==='live'?'<span class="tag livebadge">APPLY NOW</span>':''}
       </div>
@@ -638,7 +888,7 @@ document.addEventListener("click",e=>{
   const p=e.target.closest(".pill"); if(!p) return;
   if(p.classList.contains("mode")){document.querySelectorAll(".pill.mode").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.mode=p.dataset.mode;}
   else if(p.classList.contains("geo")){document.querySelectorAll(".pill.geo").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.geo=p.dataset.geo;}
-  else if(p.classList.contains("cat")){document.querySelectorAll(".pill.cat").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.cat=p.dataset.v;}
+  else if(p.classList.contains("cat")){document.querySelectorAll(".pill.cat").forEach(x=>{x.classList.remove("on");x.style.background="";x.style.borderColor="";x.style.color="";});p.classList.add("on");state.cat=p.dataset.v;const cc=CAT_COLORS[p.dataset.v];if(cc){p.style.background=cc;p.style.borderColor=cc;p.style.color="#0f1115";}}
   else if(p.classList.contains("fund")){document.querySelectorAll(".pill.fund").forEach(x=>x.classList.remove("on"));p.classList.add("on");state.fund=p.dataset.fund;}
   render();
 });
