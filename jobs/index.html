@@ -60,6 +60,12 @@
   .tag.Kids{background:rgba(239,111,166,.16);color:var(--kids)}
   .tag.livebadge{background:rgba(255,93,93,.16);color:#ff8d8d}
   .tag.funded{background:rgba(224,169,60,.14);color:var(--food);border:1px solid rgba(224,169,60,.4)}
+  .tag.pay{font-weight:700}
+  .tag.pay.est{background:rgba(94,196,140,.12);color:#74c79a;border:1px solid rgba(94,196,140,.28)}
+  .tag.pay.prizeMoney{background:rgba(94,196,140,.24);color:#a6e3bd;border:1px solid rgba(94,196,140,.55)}
+  .tag.pay.nopay{background:#222733;color:#9aa3b2;border:1px solid var(--line)}
+  .paylegend{font-size:12px;color:var(--faint);margin:12px 0 -4px;line-height:1.5}
+  .paylegend b{color:#74c79a}
   .pill.fund.on[data-fund="yes"]{background:var(--food);border-color:var(--food);color:#1c1304}
   .why{color:var(--soft);font-size:13px;flex:1}
   .donor{font-size:11.5px;color:#828b9c;margin-top:-2px}
@@ -128,6 +134,10 @@
       <span class="pill fund on" data-fund="all">All</span>
       <span class="pill fund" data-fund="yes">Donor-funded NGOs</span>
     </div>
+  </div>
+
+  <div class="paylegend">
+    The green <b>$</b> figure is a pay guide. Plain amounts are real published prizes, grants, or fixed terms. Figures with <b>*</b> are estimated market day rates if hired (they vary by client, scope, and negotiation; EU-member markets Croatia, Slovenia, and Greece run 2 to 5 times higher than the rest). "press access" means accreditation with venue access but no fee, the usual way into a festival.
   </div>
 
   <div class="grid" id="grid"></div>
@@ -222,7 +232,7 @@
 <script>
 const DATA = [
 /* ============ NORTH MACEDONIA ============ */
-{n:"Skopje 2028, European Capital of Culture",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"live",dl:"2nd open call expected, monitor",when:"",why:"Multi-year arts programme through 2028, a steady commissioning pipeline. Project grants up to EUR 50,000 and constant event documentation.",u:"https://skopje2028.mk/apply/",k:"info@skopje2028.mk"},
+{n:"Skopje 2028, European Capital of Culture",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"live",pay:"up to ~$55k project grant",dl:"2nd open call expected, monitor",when:"",why:"Multi-year arts programme through 2028, a steady commissioning pipeline. Project grants up to EUR 50,000 and constant event documentation.",u:"https://skopje2028.mk/apply/",k:"info@skopje2028.mk"},
 {n:"UNICEF North Macedonia, photo/video roster",g:"North Macedonia",city:"Skopje",cat:"International",t:"live",dl:"Roster call, re-opens periodically",when:"",why:"National-consultant roster for recurring videography and photography across UNICEF projects.",u:"https://www.unicef.org/northmacedonia/work-unicef",k:"jobs.unicef.org"},
 {n:"Ohrid Summer Festival",g:"North Macedonia",city:"Ohrid",cat:"Culture",t:"pitch",why:"66th edition, 12 July to 20 August 2026, 45 events at landmark venues. One of the most prestigious festivals in the region.",u:"https://ohridskoleto.com.mk",k:"contact@ohridskoleto.com.mk"},
 {n:"Skopje Jazz Festival",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"43-year-old festival, concerts at major venues each autumn. Produces heavy media content.",u:"http://skopjejazzfest.com.mk/en/",k:"sjf@skopjejazzfest.com.mk"},
@@ -265,7 +275,7 @@ const DATA = [
 
 /* ============ ALBANIA ============ */
 {n:"OSCE Albania, video/photo production expert",g:"Albania",city:"Tirana",cat:"International",t:"live",dl:"Deadline ~23 June 2026 (verify)",when:"2026-06-23",why:"Consultant to produce short videos for Local Youth Councils, own equipment needed. OSCE posts photographer roles at this same portal.",u:"https://vacancies.osce.org/",k:"req ALB000190"},
-{n:"Tirana Photo Festival, open call",g:"Albania",city:"Tirana",cat:"Culture",t:"live",dl:"Festival 1 to 10 July 2026",when:"2026-07-01",why:"Theme #OFFLINE, single photo / photo stories / video stories, exhibited at Tirana Lake Park. Connects you to the Albanian photo circuit.",u:"https://www.tiranaphotofestival.com/?lang=en",k:"tiranaphotofestival@gmail.com"},
+{n:"Tirana Photo Festival, open call",g:"Albania",city:"Tirana",cat:"Culture",t:"live",pay:"exhibition, no fee",dl:"Festival 1 to 10 July 2026",when:"2026-07-01",why:"Theme #OFFLINE, single photo / photo stories / video stories, exhibited at Tirana Lake Park. Connects you to the Albanian photo circuit.",u:"https://www.tiranaphotofestival.com/?lang=en",k:"tiranaphotofestival@gmail.com"},
 {n:"IOM Albania, communication & visibility consultant",g:"Albania",city:"Tirana",cat:"International",t:"live",dl:"Ref CON 2026/10, verify deadline",when:"",why:"Photo stories, reels and content for the EU4Migration project. Visual output explicitly listed.",u:"https://albania.iom.int/",k:"unjobs.org/offices/iom_tia"},
 {n:"Partners Albania",g:"Albania",city:"Tirana",cat:"NGO",t:"pitch",why:"20+ years convening NGOs and funders, runs the multi-day Civil Society Week, forums and competitions.",u:"https://www.partnersalbania.org/",k:"partners@partnersalbania.org"},
 {n:"National Resource Centre for Civil Society",g:"Albania",city:"Tirana / Shkodra / Vlora",cat:"NGO",t:"pitch",why:"Runs the annual Civil Society Week and national forums across three cities. Recurring multi-location work.",u:"https://resourcecentre.al/",k:"info@resourcecentre.al"},
@@ -285,7 +295,7 @@ const DATA = [
 {n:"National Puppet Theatre",g:"Albania",city:"Tirana",cat:"Kids",t:"pitch",why:"~500 performances a year, recently restored under EU4Culture, special events and school programmes.",u:"https://www.tirana.al/en",k:"Tirana municipality culture dept"},
 
 /* ============ SERBIA ============ */
-{n:"Belgrade Photo Month, portfolio review",g:"Serbia",city:"Belgrade",cat:"Culture",t:"live",dl:"Open call, check page",when:"",why:"The region's biggest photo festival runs portfolio reviews, the central networking hub for photographers in Serbia.",u:"https://www.belgradephotomonth.org/en/open-calls/",k:"info@belgradephotomonth.org"},
+{n:"Belgrade Photo Month, portfolio review",g:"Serbia",city:"Belgrade",cat:"Culture",t:"live",pay:"no fee (review)",dl:"Open call, check page",when:"",why:"The region's biggest photo festival runs portfolio reviews, the central networking hub for photographers in Serbia.",u:"https://www.belgradephotomonth.org/en/open-calls/",k:"info@belgradephotomonth.org"},
 {n:"Belgrade Book Fair, press accreditation",g:"Serbia",city:"Belgrade",cat:"Culture",t:"live",dl:"Fair 23 to 31 Oct 2026",when:"2026-10-23",why:"69th edition, one of the largest cultural events in SE Europe. Photographer accreditation via the press team.",u:"https://sajamknjiga.rs/en/acreditation/press-acreditation/",k:"knjigepress@sajam.rs"},
 {n:"UNDP Serbia",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Programme events and visibility campaigns across Serbia, has commissioned photographer rosters.",u:"https://www.undp.org/serbia",k:"undp.org/serbia/jobs"},
 {n:"UNICEF Serbia, photographer roster",g:"Serbia",city:"Belgrade",cat:"International",t:"pitch",why:"Runs a paid photographer roster (event coverage to full field libraries), re-opens periodically. Watch for it.",u:"https://www.unicef.org/serbia",k:"untalent.org"},
@@ -308,7 +318,7 @@ const DATA = [
 
 /* ============ BULGARIA ============ */
 {n:"Webit 2026, media accreditation",g:"Bulgaria",city:"Sofia",cat:"Corporate",t:"live",dl:"Event 23 June 2026, apply now",when:"2026-06-23",why:"Large AI and tech conference, 3000+ attendees. Free media accreditation for independent creators is open now.",u:"https://www.webit.org/en/webit/2026/media.php",k:"office@webit.org"},
-{n:"Charity through the Lens (BCause)",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"live",dl:"Annual photo grant, check cycle",when:"",why:"Annual competition that grants 2,000 BGN to photography projects on charity and civil-society themes.",u:"https://www.blagobektiv.org",k:"bcause.bg"},
+{n:"Charity through the Lens (BCause)",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"live",pay:"~$1,100 prize",dl:"Annual photo grant, check cycle",when:"",why:"Annual competition that grants 2,000 BGN to photography projects on charity and civil-society themes.",u:"https://www.blagobektiv.org",k:"bcause.bg"},
 {n:"Bulgarian Center for Not-for-Profit Law",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Hosts the International Fundraising Conference, the largest NGO fundraising event in Bulgaria, plus a recurring calendar.",u:"https://bcnl.org/en/",k:"info@bcnl.org"},
 {n:"Sofia Pride",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Parade plus film festival and business forum, tens of thousands of attendees, three photo opportunities in one week.",u:"https://en.sofiapride.org/",k:"en.sofiapride.org/contact-us"},
 {n:"BCause Foundation",g:"Bulgaria",city:"Sofia",cat:"NGO",t:"pitch",why:"Philanthropy NGO running the photo competition plus fundraising symposia and civic events.",u:"https://www.bcause.bg/en/",k:"bcause.bg (contact)"},
@@ -328,7 +338,7 @@ const DATA = [
 
 /* ============ CROATIA ============ */
 {n:"Dubrovnik Summer Festival, accreditation",g:"Croatia",city:"Dubrovnik",cat:"Culture",t:"live",dl:"Festival 10 July to 25 Aug 2026, apply now",when:"2026-07-10",why:"77th edition, 70+ performances across 25 Old Town venues. Media accreditation is open now.",u:"https://www.dubrovnik-festival.hr/en/media-accreditation",k:"dajana.brzica@dubrovnik-festival.hr"},
-{n:"Sail Croatia, photographer on board",g:"Croatia",city:"Split / Dubrovnik",cat:"Corporate",t:"live",dl:"Rolling, June to September season",when:"",why:"Recruiting photographers trip-by-trip all summer. Pay is cabin and meals, a foot-in-the-door with a recurring travel operator.",u:"https://www.sail-croatia.com/about/work-with-us/photographer",k:"sail-croatia.com form"},
+{n:"Sail Croatia, photographer on board",g:"Croatia",city:"Split / Dubrovnik",cat:"Corporate",t:"live",pay:"cabin + meals",dl:"Rolling, June to September season",when:"",why:"Recruiting photographers trip-by-trip all summer. Pay is cabin and meals, a foot-in-the-door with a recurring travel operator.",u:"https://www.sail-croatia.com/about/work-with-us/photographer",k:"sail-croatia.com form"},
 {n:"INmusic Festival, press",g:"Croatia",city:"Zagreb",cat:"Culture",t:"live",dl:"Festival 22 to 24 June 2026",when:"2026-06-22",why:"Croatia's largest outdoor music festival on Lake Jarun. 2026 accreditation closed, email for last-minute or the 2027 list.",u:"https://www.inmusicfestival.com/en/press",k:"press@inmusicfestival.com"},
 {n:"VINART",g:"Croatia",city:"Zagreb",cat:"Food",t:"pitch",why:"Vinart Grand Tasting (March) plus Vinski Grad public wine and food festival (June, ~18 days). Two recurring events.",u:"https://vinart.hr/en/home/",k:"info@vinart.hr"},
 {n:"Organ Vida Photography Festival",g:"Croatia",city:"Zagreb",cat:"Culture",t:"pitch",why:"International photography festival each September, strong network of photographers and curators. Pitch as a production/documentation partner.",u:"https://ovfestival.org/",k:"info@organvida.com"},
@@ -465,7 +475,58 @@ const DATA = [
 {n:"BIRN, Balkan Investigative Reporting Network",g:"Regional",city:"Pristina/Tirana/Sarajevo",cat:"NGO",t:"pitch",funded:true,donor:"UK FCDO, EU",why:"Regional media NGO: media-integrity conferences, investigative-journalism award ceremonies, report launches.",u:"https://birn.eu.com",k:"birn.eu.com/contact/"},
 {n:"WB6 MEDIA / SustanMedia",g:"Regional",city:"All capitals",cat:"NGO",t:"pitch",funded:true,donor:"EU + German BMZ (GIZ, DW Akademie)",why:"Regional media-freedom programme: capacity workshops and Media Resource Center events in each capital.",u:"https://www.wb6media.eu/en/about-us/",k:"wb6media.eu"},
 {n:"European Fund for the Balkans",g:"Regional",city:"Vienna / Belgrade",cat:"NGO",t:"pitch",donor:"ERSTE (Austria), Bosch (Germany), King Baudouin",why:"Regional re-granter: civil-society forums, reconciliation events, the Re:boot Camp for Western Balkans leaders.",u:"https://balkanfund.org",k:"office@erstestiftung.org"},
-{n:"OBCT, Osservatorio Balcani Caucaso",g:"Regional",city:"Belgrade / Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Italian MAECI, EU",why:"Italian implementer: media-freedom forums, journalism workshops, stakeholder meetings in Belgrade and Pristina.",u:"https://www.balcanicaucaso.org/en/",k:"balcanicaucaso.org"}
+{n:"OBCT, Osservatorio Balcani Caucaso",g:"Regional",city:"Belgrade / Pristina",cat:"NGO",t:"pitch",funded:true,donor:"Italian MAECI, EU",why:"Italian implementer: media-freedom forums, journalism workshops, stakeholder meetings in Belgrade and Pristina.",u:"https://www.balcanicaucaso.org/en/",k:"balcanicaucaso.org"},
+
+/* ===== MORE FESTIVALS (added 17 June 2026) ===== */
+{n:"Struga Poetry Evenings",g:"North Macedonia",city:"Struga",cat:"Culture",t:"pitch",why:"One of the world's oldest international poetry festivals (August), readings and award ceremonies on the Drim with delegations from 60+ countries.",u:"https://svp.org.mk/en",k:"svp.org.mk (contact form)"},
+{n:"KineNova International Film Festival",g:"North Macedonia",city:"Skopje",cat:"Culture",t:"pitch",why:"Auteur and independent film festival: screenings, masterclasses and Q&As across city venues.",u:"https://kinenova.com/en/home/",k:"kinenovafilmfestival@gmail.com"},
+{n:"Vir Festival",g:"North Macedonia",city:"Gevgelija",cat:"Culture",t:"pitch",why:"Boutique outdoor electronic-music and art festival (August) with a strong nature and visual character.",u:"https://ra.co/events/2404630",k:"vir.festival@gmail.com"},
+{n:"Heraklion Summer Arts Festival",g:"Greece",city:"Heraklion",cat:"Culture",t:"pitch",why:"Municipal multi-arts summer festival (July to September), 130 to 200+ events across heritage venues in Crete.",u:"https://www.heraklion.gr/en/culture/heraklion-kalokairi/heraklion-kalokairi.html",k:"info@nowheraklion.com"},
+{n:"Patras Carnival",g:"Greece",city:"Patras",cat:"Culture",t:"pitch",why:"Europe's largest carnival (January to February): grand parades, floats and street performance. Exceptional street photography.",u:"https://carnivalpatras.gr",k:"carnivalpatras.gr (press)"},
+{n:"Gjirokaster National Folk Festival",g:"Albania",city:"Gjirokaster",cat:"Culture",t:"pitch",why:"Albania's most important folk festival at Gjirokaster Castle (held every few years), ~1,000 artists, UNESCO iso-polyphony. Spectacular.",u:"https://adesa.al/events/gjirokaster-national-folklore-festival/",k:"Ministry of Culture / gjirokaster.al"},
+{n:"Gjon Mili International Video Art Festival",g:"Albania",city:"Korce",cat:"Culture",t:"pitch",why:"Contemporary video-art and short-film festival (October) named after the Albanian-American photographer, with residencies and exhibitions.",u:"https://gjonmili-ivaf.com/",k:"gjonmili-ivaf.com (form)"},
+{n:"Sunny Hill Festival",g:"Kosovo",city:"Pristina",cat:"Culture",t:"pitch",why:"Kosovo's biggest music festival (early August), co-founded by Dua Lipa, global headliners. Has a media/photographer accreditation section.",u:"https://www.sunnyhillfestival.com/",k:"info@sunnyhillfestival.com"},
+{n:"Arsenal Fest",g:"Serbia",city:"Kragujevac",cat:"Culture",t:"pitch",why:"Three-day rock and alternative festival (late June) at the historic Knezev Arsenal, three stages. Formal press accreditation.",u:"https://arsenalfest.rs/en/",k:"pr@arsenalfest.rs"},
+{n:"No Sleep Festival",g:"Serbia",city:"Belgrade",cat:"Culture",t:"pitch",why:"Electronic-music festival (April) by the EXIT team at the Port of Belgrade, strong club visual character.",u:"https://www.nosleepfestival.com/en/",k:"nosleepfestival.com/contact/"},
+{n:"International Novi Sad Literature Festival",g:"Serbia",city:"Novi Sad",cat:"Culture",t:"pitch",why:"Literary festival (Aug to Sept): readings, performances, exhibitions and music.",u:"https://novisad.travel/en/kalendar-dogadjaja/medunarodni-novosadski-knjizevni-festival/",k:"Writers of Vojvodina assoc."},
+{n:"Plovdiv Jazz Fest",g:"Bulgaria",city:"Plovdiv",cat:"Culture",t:"pitch",why:"Jazz festival with spring and autumn editions at heritage venues (the Bishop's Basilica).",u:"https://plovdivjazzfest.com/en",k:"plovdivjazzfest.com (form)"},
+{n:"Varna International Jazz Festival",g:"Bulgaria",city:"Varna",cat:"Culture",t:"pitch",why:"35th edition (May to June) in the Archaeological Museum courtyard, world-class musicians.",u:"https://varnasummerjazzfestival.com/en/",k:"vapirov@telecoms.bg"},
+{n:"PhillGood Festival",g:"Bulgaria",city:"Plovdiv",cat:"Culture",t:"pitch",why:"New large outdoor rock/alt festival (July) at the Rowing Canal, major international headliners.",u:"https://phillgood.ink",k:"info@festteam.bg"},
+{n:"Night of Museums and Galleries",g:"Bulgaria",city:"Plovdiv",cat:"Culture",t:"pitch",why:"Late-night arts event (September) by Open Arts Foundation, 100+ events, 40,000+ visitors in one evening.",u:"https://openarts.info/en",k:"openarts.info (contact)"},
+{n:"Pula Film Festival",g:"Croatia",city:"Pula",cat:"Culture",t:"pitch",pay:"accreditation fee ~$55-110",why:"73rd edition (July) in the Roman Arena, Croatian and international competition, 1,400+ accredited.",u:"https://www.pulafilmfestival.hr",k:"ulaznice@pulafilmfestival.hr"},
+{n:"Split Summer Festival",g:"Croatia",city:"Split",cat:"Culture",t:"pitch",why:"72nd edition (mid-July to mid-Aug): opera, ballet, drama and concerts across Diocletian's Palace and historic spaces.",u:"https://www.splitsko-ljeto.hr/en/72-split-summer-festival/about",k:"splitsko-ljeto.hr (contact)"},
+{n:"Sea Star Festival",g:"Croatia",city:"Umag",cat:"Culture",t:"pitch",why:"Electronic-music festival (late May) on the Istrian coast, ~50,000 attendees. Cameras need approved accreditation.",u:"https://www.seastarfestival.com/en/",k:"seastarfestival.com/en/press"},
+{n:"Maribor Theatre Festival (Borstnikovo)",g:"Slovenia",city:"Maribor",cat:"Culture",t:"pitch",why:"61st edition (June), national and international theatre by the Slovenian National Theatre Maribor, heavy press attendance.",u:"https://borstnikovo.si/en",k:"SNT Maribor press +386 2 250 6148"},
+{n:"Sajeta Art and Music Festival",g:"Slovenia",city:"Tolmin",cat:"Culture",t:"pitch",why:"Independent riverside multi-arts festival (July): electronic, jazz and ethnic music plus film, art and workshops.",u:"https://www.sajeta.org/en/",k:"facebook.com/Sajeta"},
+{n:"Sarajevo Photography Festival",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",pay:"EUR 2,000 (~$2,200) Grand Prix",why:"Month-long international photography festival and competition (June), 8 categories, ~$11k total prize pool, Canon-sponsored. A direct photographer competition.",u:"https://sarajevophotofest.com/",k:"info@sarajevophotofest.com"},
+{n:"Sarajevo Evenings of Music (SVEM)",g:"Bosnia",city:"Sarajevo",cat:"Culture",t:"pitch",why:"The oldest classical-music festival in BiH (May), contemporary and classical performance.",u:"https://www.maf.ba",k:"maf.ba (contact)"},
+{n:"Fresh Wave Festival",g:"Bosnia",city:"Banja Luka",cat:"Culture",t:"pitch",why:"The largest electronic-music festival in BiH (August) at the historic Kastel Fortress.",u:"https://freshwavefestival.com/",k:"freshwavefestival.com (form)"},
+{n:"Demofest",g:"Bosnia",city:"Banja Luka",cat:"Culture",t:"pitch",why:"The largest unsigned-band festival in SE Europe (July) at Kastel Fortress.",u:"https://www.demofest.ba/",k:"snjezana.novakovic@aquarius.ba"},
+{n:"KotorArt International Festival",g:"Montenegro",city:"Kotor",cat:"Culture",t:"pitch",why:"Summer multi-arts festival of national importance (July to Aug), 200+ events at Kotor and Boka Bay heritage venues.",u:"https://kotor.art/en/home/",k:"pr@kotorart.art"},
+{n:"Theatre City Budva",g:"Montenegro",city:"Budva",cat:"Culture",t:"pitch",why:"Summer theatre and performing-arts festival (July to Aug), 60+ events, 700+ artists across Budva's Old Town.",u:"https://gradteatar.me/?lang=en",k:"theatrecity@gradteatar.me"},
+{n:"Green Montenegro Int'l Film Festival",g:"Montenegro",city:"Zabljak",cat:"Culture",t:"pitch",why:"Eco-focused outdoor film festival (early Aug) in Durmitor National Park, a unique natural backdrop.",u:"https://greenmontenegro.me/en/",k:"office@greenmontenegro.me"},
+/* ===== MORE FOOD AND DRINK EVENTS (added 17 June 2026) ===== */
+{n:"Tikves Wine Festival (Grozdober)",g:"North Macedonia",city:"Kavadarci",cat:"Food",t:"pitch",why:"Annual grape-harvest celebration (early September): tastings, a carnival parade, the Wine King and Queen, street food. One of the country's biggest events.",u:"https://tikves.com.mk",k:"Kavadarci tourism office"},
+{n:"Athens Street Food Festival",g:"Greece",city:"Athens",cat:"Food",t:"pitch",why:"10th edition (three May weekends) at Palio Amaxostasio, international street cuisines, DJs and shows.",u:"https://athensstreetfoodfestival.gr/en/",k:"athensstreetfoodfestival.gr/en/epikoinonia/"},
+{n:"Thessaloniki Wine Show",g:"Greece",city:"Thessaloniki",cat:"Food",t:"pitch",why:"Wine fair (late March) at Helexpo, 130+ wineries, 1,400+ labels. Press passes for working media.",u:"https://thessalonikiwineshow.gr/",k:"kulturosupa@yahoo.gr"},
+{n:"InterFest International Wine Festival",g:"Serbia",city:"Novi Sad",cat:"Food",t:"pitch",why:"One of the region's largest wine events (June) on Freedom Square, 22nd edition.",u:"https://interfest.interfest.org.rs/",k:"office@interfest.org.rs"},
+{n:"Belgrade Wine Salon",g:"Serbia",city:"Belgrade",cat:"Food",t:"pitch",why:"High-end wine event (June) at the Royal White Palace for producers and enthusiasts.",u:"https://bsv.rs/",k:"invino@invino.rs"},
+{n:"Vrnjacka Banja Wine Festival",g:"Serbia",city:"Vrnjacka Banja",cat:"Food",t:"pitch",why:"Spa-town wine festival (August), ~30 winemakers plus rakija and food producers.",u:"https://vrnjackabanja.co.rs/en/en-festivls/",k:"office@vrnjackabanja.co.rs"},
+{n:"VINARIA Plovdiv",g:"Bulgaria",city:"Plovdiv",cat:"Food",t:"pitch",why:"Major wine exhibition (February) at International Fair Plovdiv, trade and public. Dedicated media contact.",u:"https://fair.bg/en/event/2026/vinaria-2026",k:"advertising@fair.bg"},
+{n:"Vinistra Wine Festival",g:"Croatia",city:"Porec",cat:"Food",t:"pitch",why:"One of Croatia's largest wine events (May) in Istria, 100+ winemakers plus olive oil and spirits.",u:"https://vinistra.hr/en/",k:"info@vinistra.com"},
+{n:"Weekend Food Festival",g:"Croatia",city:"Rovinj",cat:"Food",t:"pitch",why:"Gastronomy festival (April): world chefs, masterclasses, show-cooking and panels. Press accreditation available.",u:"https://weekendfoodfestival.com/?lang=en",k:"info@weekend.hr"},
+{n:"International Prosciutto Fair (ISAP)",g:"Croatia",city:"Tinjan",cat:"Food",t:"pitch",why:"Istrian prosciutto and cured-meat fair (mid-October), ~40 European exhibitors with wine.",u:"https://www.tinjan.hr/isap",k:"opcina@tinjan.hr"},
+{n:"Good Food Festival Dubrovnik",g:"Croatia",city:"Dubrovnik",cat:"Food",t:"pitch",why:"Two-week gastronomy festival (October) by the Tourist Board: chef dinners, tastings and the Dubrovnik Table.",u:"https://tzdubrovnik.hr/lang/en/news/good_food_fest/index.html",k:"tzdubrovnik.hr (media)"},
+{n:"Vinska Vigred Wine Festival",g:"Slovenia",city:"Metlika",cat:"Food",t:"pitch",why:"The largest wine festival in Slovenia (May), Bela Krajina wines with food and music.",u:"https://vinska-vigred.si/",k:"turizem@zavodmetlika.si"},
+{n:"Teran and Prosciutto Festival",g:"Slovenia",city:"Dutovlje",cat:"Food",t:"pitch",why:"54th edition (August) in the Karst: prosciutto, teran wine, folk and cultural programme.",u:"https://teraninprsut.si/",k:"info@teraninprsut.si"},
+{n:"Pivo in Cvetje (Beer and Flowers)",g:"Slovenia",city:"Lasko",cat:"Food",t:"pitch",why:"Slovenia's largest beer festival (July), multiple music stages, 61st edition.",u:"https://www.pivo-cvetje.si/en/",k:"pivo-cvetje.si (contact)"},
+{n:"Festival of the Oldest Vine",g:"Slovenia",city:"Maribor",cat:"Food",t:"pitch",why:"Ceremonial harvest of the 450-year-old vine (late Sept) with wine and culinary evenings. Past editions credited a named photographer.",u:"https://www.visitmaribor.si/en/",k:"tic@maribor.si"},
+{n:"Moba Street Food Festival",g:"Bosnia",city:"Mostar",cat:"Food",t:"pitch",why:"The first and largest street-food festival in Mostar (late Aug to early Sept) at Spanski Trg, with concerts.",u:"https://www.facebook.com/moba.street.food",k:"info@moba.ba"},
+{n:"Herzegovina Wine Route Festival",g:"Bosnia",city:"Mostar",cat:"Food",t:"pitch",why:"Wine festival (late May): 20+ wineries of Zilavka and Blatina, a tourism conference, art and music.",u:"https://hwr.ba/hwr-festival/",k:"darko.pehar@komorabih.ba"},
+{n:"AGROKOS Agribusiness and Food Fair",g:"Kosovo",city:"Pristina",cat:"Food",t:"pitch",why:"25th edition (late May), the leading agribusiness, food and beverage trade fair in Kosovo.",u:"https://www.ceokos.com/agrokos/en/for-exhibitor/",k:"ceokos.com"},
+{n:"Wine and Bleak Festival",g:"Montenegro",city:"Virpazar",cat:"Food",t:"pitch",why:"Lake Skadar wine and lake-fish festival (late Feb to early Mar), a local wine competition plus cultural programme.",u:"https://www.montenegro.travel/en/explore-montenegro/events-in-montenegro/568-wine-and-bleak-festival",k:"bar.travel"},
+{n:"Craft Fest Montenegro",g:"Montenegro",city:"Podgorica",cat:"Food",t:"pitch",why:"Podgorica craft-beer festival (mid-June) on Independence Square, 10+ breweries, live music.",u:"https://podgorica.travel/en/",k:"podgorica.travel"},
+{n:"Montenegro Beer Fest",g:"Montenegro",city:"Cetinje",cat:"Food",t:"pitch",why:"Beer and music festival (late July to early Aug) in Cetinje, regional craft beer and live acts.",u:"https://www.facebook.com/montenegrobeerfest",k:"facebook.com/montenegrobeerfest"}
 ];
 
 const CATS = ["NGO","International","Culture","Corporate","Food","Kids"];
@@ -505,13 +566,50 @@ function contactOut(k){
   return `<span>${k}</span>`;
 }
 
+// $USD prize/payment field. Plain values (prizes, fees, "press access") are real or fixed.
+// EST values carry a trailing * = estimated market day rate if hired, by category and country tier.
+const TIER_EU=["Croatia","Slovenia","Greece"];
+function tierOf(g){ if(TIER_EU.includes(g)) return "eu"; if(g==="Bulgaria") return "mid"; return "low"; }
+const EST={
+  localNGO:{low:"$110-275/day",mid:"$175-350/day",eu:"$350-700/day"},
+  donorIntl:{low:"$150-400/day",mid:"$220-500/day",eu:"$400-900/day"},
+  festival:{low:"$150-350/day",mid:"$300-500/day",eu:"$450-850/day"},
+  corporate:{low:"$200-550/day",mid:"$385-715/day",eu:"$550-1300/day"},
+  food:{low:"$110-250/day",mid:"$150-350/day",eu:"$250-600/day"},
+  kids:{low:"$110-275/day",mid:"$175-350/day",eu:"$300-600/day"},
+  consult:{low:"$150-350/day",mid:"$220-500/day",eu:"$400-700/day"}
+};
+function payFor(d){
+  if(d.pay) return d.pay;
+  const t=tierOf(d.g);
+  if(d.t==='live'){
+    if(d.cat==='International'||d.cat==='NGO') return EST.consult[t]+"*";
+    return "press access";
+  }
+  let key;
+  if(d.cat==='NGO') key=d.funded?'donorIntl':'localNGO';
+  else if(d.cat==='International') key='donorIntl';
+  else if(d.cat==='Culture') key='festival';
+  else if(d.cat==='Corporate') key='corporate';
+  else if(d.cat==='Food') key='food';
+  else key='kids';
+  return EST[key][t]+"*";
+}
+function payClass(pv){
+  if(/prize|grant/.test(pv)) return 'prizeMoney';
+  if(/access|fee|cabin|exhibition|review/.test(pv)) return 'nopay';
+  return 'est';
+}
+
 function render(){
   const grid=document.getElementById("grid");
   const list=DATA.filter(matches);
   grid.innerHTML = list.map(d=>{
     const col = `var(--${d.cat==="NGO"?"ngo":d.cat==="International"?"intl":d.cat==="Culture"?"culture":d.cat==="Corporate"?"corp":d.cat==="Food"?"food":"kids"})`;
+    const pv = payFor(d);
     return `<div class="card ${d.t==='live'?'live':''}" style="border-left-color:${col}">
       <div class="tags">
+        <span class="tag pay ${payClass(pv)}">${pv}</span>
         <span class="tag geo">${d.g}${d.city?", "+d.city:""}</span>
         <span class="tag ${d.cat}">${d.cat}</span>
         ${d.funded?'<span class="tag funded">donor-funded</span>':''}
@@ -532,7 +630,7 @@ function render(){
 function renderUrgent(){
   const soon=DATA.filter(d=>d.when).sort((a,b)=>a.when.localeCompare(b.when));
   document.getElementById("urgentList").innerHTML = soon.map(d=>
-    `<li><span class="when">${d.dl}</span><span class="nm">${d.n}</span> <span class="meta">, ${d.g}. ${contactOut(d.k)}</span></li>`
+    `<li><span class="when">${d.dl}</span><span class="nm">${d.n}</span> <span class="meta">, ${d.g} &middot; ${payFor(d)}. ${contactOut(d.k)}</span></li>`
   ).join("");
 }
 
